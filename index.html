@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pass-a-Grille '26">
+<title>Pass-a-Grille Trip 2026</title>
+<link rel="apple-touch-icon" id="appIcon" href="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* Fallback font stack if Google Fonts unavailable */
+  :root { --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif; --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+</style>
+<style>
+  :root {
+    --sand: #F5EDD8;
+    --shell: #EAD5B0;
+    --ocean: #1B6CA8;
+    --deep: #0D3D5E;
+    --foam: #E8F4F8;
+    --coral: #E07A5F;
+    --kelp: #3D7A5C;
+    --dusk: #8B6F8E;
+    --text: #1A1A2E;
+    --muted: #6B6B7B;
+    --white: #FFFFFF;
+    --card-shadow: 0 4px 24px rgba(13,61,94,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--sand);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .app-header {
+    background: linear-gradient(160deg, var(--deep) 0%, var(--ocean) 60%, #2A9D8F 100%);
+    padding: 56px 20px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .app-header::before {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: -10%; right: -10%;
+    height: 50px;
+    background: var(--sand);
+    border-radius: 50% 50% 0 0;
+  }
+  .wave-dots {
+    position: absolute;
+    top: 20px; right: 20px;
+    opacity: 0.15;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: 4px;
+  }
+  .header-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .header-title em {
+    font-style: italic;
+    color: #A8DCEF;
+  }
+  .header-dates {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-dates span { color: rgba(255,255,255,0.4); }
+
+  /* ── NAV TABS ── */
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    padding: 20px 16px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 9px 16px;
+    border: none;
+    background: rgba(27,108,168,0.08);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    background: var(--ocean);
+    color: white;
+  }
+
+  /* ── SECTIONS ── */
+  .section { display: none; padding: 20px 16px 120px; }
+  .section.active { display: block; }
+
+  /* ── DAY CARDS ── */
+  .day-card {
+    background: white;
+    border-radius: 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+    gap: 14px;
+  }
+  .day-badge {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .day-badge .num {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+  }
+  .day-badge .lbl {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+  .day-info { flex: 1; min-width: 0; }
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .day-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .day-chevron {
+    font-size: 18px;
+    color: var(--muted);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .day-card.open .day-chevron { transform: rotate(90deg); }
+  .day-body {
+    display: none;
+    border-top: 1px solid var(--shell);
+    padding: 18px;
+  }
+  .day-card.open .day-body { display: block; }
+
+  /* Timeline items */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--ocean), var(--kelp));
+    border-radius: 1px;
+    opacity: 0.25;
+  }
+  .tl-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .tl-content { flex: 1; padding-top: 4px; }
+  .tl-time {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .tl-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .tl-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .tl-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-right: 4px;
+  }
+  .tag-free { background: #E8F5E9; color: #2E7D32; }
+  .tag-cheap { background: #FFF3E0; color: #E65100; }
+  .tag-charge { background: #E3F2FD; color: #1565C0; }
+  .tag-food { background: #FCE4EC; color: #880E4F; }
+  .tag-drive { background: #F3E5F5; color: #6A1B9A; }
+  .tag-mom { background: #FFF8E1; color: #F57F17; }
+
+  /* ── INFO CARDS (Places, Charging, Tips) ── */
+  .info-card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 14px;
+    box-shadow: var(--card-shadow);
+  }
+  .info-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .info-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .info-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .info-subtitle { font-size: 12px; color: var(--muted); }
+  .info-divider { height: 1px; background: var(--shell); margin: 12px 0; }
+  .info-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .info-row:last-child { margin-bottom: 0; }
+  .info-row-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .info-row-content { flex: 1; }
+  .info-row-label { font-size: 12px; font-weight: 500; color: var(--text); }
+  .info-row-value { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .pill {
+    background: var(--foam);
+    border: 1px solid rgba(27,108,168,0.15);
+    color: var(--ocean);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .highlight-box {
+    background: linear-gradient(135deg, #E8F4F8, #F0F8EC);
+    border: 1px solid rgba(27,108,168,0.2);
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .highlight-box strong { color: var(--ocean); }
+
+  /* ── SECTION HEADER ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    margin-top: 4px;
+  }
+
+  /* ── BUDGET TRACKER ── */
+  .budget-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--shell);
+    font-size: 13.5px;
+  }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-category { color: var(--text); font-weight: 500; }
+  .budget-tip { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+  .budget-estimate { 
+    font-weight: 700; 
+    color: var(--kelp);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .budget-total {
+    background: var(--deep);
+    color: white;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .budget-total-label {
+    font-size: 13px;
+    opacity: 0.75;
+    font-weight: 500;
+  }
+  .budget-total-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: white;
+    border-top: 1px solid var(--shell);
+    display: flex;
+    padding: 10px 0 env(safe-area-inset-bottom, 10px);
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(13,61,94,0.08);
+  }
+  .nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px 0;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-btn.active { color: var(--ocean); }
+  .nav-btn .nav-icon { font-size: 22px; }
+
+  /* Color palettes for day badges */
+  .c-ocean { background: linear-gradient(135deg, #1B6CA8, #2A9D8F); }
+  .c-coral { background: linear-gradient(135deg, #E07A5F, #F4A261); }
+  .c-kelp  { background: linear-gradient(135deg, #3D7A5C, #52B788); }
+  .c-dusk  { background: linear-gradient(135deg, #8B6F8E, #C77DFF); }
+  .c-gold  { background: linear-gradient(135deg, #C9A84C, #F4D03F); }
+  .c-deep  { background: linear-gradient(135deg, #0D3D5E, #1B6CA8); }
+
+  .tag-glass { background: #F3E5F5; color: #6A1B9A; }
+  .tag-art   { background: #EDE7F6; color: #4527A0; }
+
+  /* Relationship wisdom card */
+  .wisdom-card {
+    background: linear-gradient(135deg, #0D3D5E, #1B6CA8);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-top: 12px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .wisdom-card::before {
+    content: '❤️';
+    position: absolute;
+    right: 14px; top: 10px;
+    font-size: 28px;
+    opacity: 0.2;
+  }
+  .wisdom-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 5px;
+  }
+  .wisdom-text {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .wisdom-source {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+
+  /* dot colors */
+  .dot-ocean { background: #E8F4F8; }
+  .dot-food  { background: #FCE4EC; }
+  .dot-nature{ background: #E8F5E9; }
+  .dot-car   { background: #F3E5F5; }
+  .dot-mom   { background: #FFF8E1; }
+  .dot-art   { background: #EDE7F6; }
+  .dot-sunset{ background: #FFF3E0; }
+  .dot-shop  { background: #F5F5F5; }
+  .dot-glass { background: #F3E5F5; }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="wave-dots">🌊🐚🌅</div>
+  <div class="header-eyebrow">Florida Gulf Coast · 2026</div>
+  <div class="header-title"><em>Pass-a-Grille</em><br>Vacation</div>
+  <div class="header-dates">Mar 6 <span>→</span> Mar 18 · 13 Days</div>
+</div>
+
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showSection('itinerary', this)">📅 Itinerary</button>
+  <button class="tab-btn" onclick="showSection('places', this)">📍 Places</button>
+  <button class="tab-btn" onclick="showSection('glass', this)">🔥 Glass Art</button>
+  <button class="tab-btn" onclick="showSection('charging', this)">⚡ Charging</button>
+  <button class="tab-btn" onclick="showSection('tips', this)">💡 Tips</button>
+  <button class="tab-btn" onclick="showSection('budget', this)">💰 Budget</button>
+</div>
+
+<!-- ═══════════════ ITINERARY ═══════════════ -->
+<div id="itinerary" class="section active">
+  <div class="section-label">Day by Day</div>
+
+  <!-- Day 1 -->
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-ocean"><span class="num">1</span><span class="lbl">Mar 6</span></div>
+      <div class="day-info">
+        <div class="day-title">Arrive & Settle In</div>
+        <div class="day-subtitle">Friday · Travel Day</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-car">🛒</div>
+          <div class="tl-content">
+            <div class="tl-time">On the Way</div>
+            <div class="tl-label">Stop at Publix on Gulf Blvd</div>
+            <div class="tl-desc">Stock up on breakfast foods, snacks, drinks, and supplies. Eating in for breakfasts saves the most money over 12 days.</div>
+            <span class="tl-tag tag-cheap">Save $$</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">🏠</div>
+          <div class="tl-content">
+            <div class="tl-time">Afternoon</div>
+            <div class="tl-label">Arrive & Unload Rental</div>
+            <div class="tl-desc">Get oriented, unpack, and breathe in that Gulf air. You've arrived!</div>
+            <span class="tl-tag tag-free">Free</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-sunset">🔔</div>
+          <div class="tl-content">
+            <div class="tl-time">Evening · Sunset</div>
+            <div class="tl-label">First Sunset at Paradise Grille</div>
+            <div class="tl-desc">Walk to Pass-a-Grille Southwest Beach. Ring the bell at sunset — it's a local tradition. Grab one celebratory drink if you like.</div>
+            <span class="tl-tag tag-free">Free to watch</span>
+          </div>
+        </div>
+      </div>
+      <div class="wisdom-card">
+        <div class="wisdom-label">💛 Relationship Wisdom · Five Love Languages</div>
+        <div class="wisdom-text">"Love is a choice — and the most powerful choice you can make for your relationship." This trip is quality time in action. Every shared sunset fills Marie's love tank.</div>
+        <div class="wisdom-source">— Chapman</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-coral"><span class="num">2</span><span class="lbl">Mar 7</span></div>
+      <div class="day-info">
+        <div class="day-title">Beach Day & Friends</div>
+        <div class="day-subtitle">Saturday · Social Day</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍳</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">Seahorse Restaurant</div>
+            <div class="tl-desc">800 Pass-a-Grille Way · Open since 1938! Shrimp &amp; grits, Cuban toast. Walk from rental, no driving needed. Closed Tuesdays.</div>
+            <span class="tl-tag tag-food">Breakfast</span><span class="tl-tag tag-cheap">$</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">🐚</div>
+          <div class="tl-content">
+            <div class="tl-time">All Day</div>
+            <div class="tl-label">Shell Hunting at Southwest Beach Tip</div>
+            <div class="tl-desc">This spot is known for great shell finds — bring a bag! Connect with your friends and relatives. Chairs, cold drinks from the rental.</div>
+            <span class="tl-tag tag-free">Free</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍽️</div>
+          <div class="tl-content">
+            <div class="tl-time">Evening</div>
+            <div class="tl-label">Group Dinner at the Rental</div>
+            <div class="tl-desc">Cook together with your friends. One of the best ways to save money and enjoy each other's company.</div>
+            <span class="tl-tag tag-free">Cook-in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-kelp"><span class="num">3</span><span class="lbl">Mar 8</span></div>
+      <div class="day-info">
+        <div class="day-title">Fort De Soto Park</div>
+        <div class="day-subtitle">Sunday · Nature Day</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🥐</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">Breakfast at Rental</div>
+            <div class="tl-desc">Make breakfast at home, pack a picnic lunch to bring along.</div>
+            <span class="tl-tag tag-cheap">Save $$</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-nature">🏰</div>
+          <div class="tl-content">
+            <div class="tl-time">Mid-Morning – Afternoon</div>
+            <div class="tl-label">Fort De Soto Park, Tierra Verde</div>
+            <div class="tl-desc">~20 min drive south. Civil War fort ruins, stunning Gulf beach, nature trail, fishing pier. $5/vehicle entry. One of the best parks in Florida — perfect group outing.</div>
+            <span class="tl-tag tag-cheap">$5/car</span><span class="tl-tag tag-free">Picnic Lunch</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-sunset">🌅</div>
+          <div class="tl-content">
+            <div class="tl-time">Evening</div>
+            <div class="tl-label">Sunset Walk at Pass-a-Grille Beach</div>
+            <div class="tl-desc">Head home and relax. The sunset is always worth walking out for.</div>
+            <span class="tl-tag tag-free">Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-gold"><span class="num">4</span><span class="lbl">Mar 9</span></div>
+      <div class="day-info">
+        <div class="day-title">Visit Mom in Sarasota</div>
+        <div class="day-subtitle">Monday · Trip #1 to Sarasota</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-car">⚡</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">Charge Tesla if Needed · 34th St S Supercharger</div>
+            <div class="tl-desc">3637 34th St S, St. Pete — 24/7, next to Wawa. Grab coffee for the drive.</div>
+            <span class="tl-tag tag-charge">Charging</span><span class="tl-tag tag-drive">~15 min from rental</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-car">🚗</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning Drive</div>
+            <div class="tl-label">Drive to Sarasota</div>
+            <div class="tl-desc">I-275 S → I-75 S → Beaurivage Ave. About 1 hour.</div>
+            <span class="tl-tag tag-drive">~60 miles</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-mom">💛</div>
+          <div class="tl-content">
+            <div class="tl-time">Mid-Morning – Afternoon</div>
+            <div class="tl-label">Visit Mom on Beaurivage Ave.</div>
+            <div class="tl-desc">Relaxed afternoon with Mom. If she's up for an outing, Sarasota Bayfront Park (5 Bayfront Dr) is a lovely free waterfront park nearby.</div>
+            <span class="tl-tag tag-mom">Family Visit</span><span class="tl-tag tag-free">Bayfront Park Free</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-car">🚗</div>
+          <div class="tl-content">
+            <div class="tl-time">Late Afternoon</div>
+            <div class="tl-label">Drive Back to Pass-a-Grille</div>
+            <div class="tl-desc">Top up at Sarasota Supercharger (5903 Honore Ave, near Whole Foods) if needed before getting on I-75.</div>
+            <span class="tl-tag tag-charge">Optional Charge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 5 -->
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-deep"><span class="num">5</span><span class="lbl">Mar 10</span></div>
+      <div class="day-info">
+        <div class="day-title">Downtown St. Petersburg</div>
+        <div class="day-subtitle">Tuesday · City Day</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">🌊</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">Vinoy Park & North Straub Park</div>
+            <div class="tl-desc">Bayshore Dr waterfront — gorgeous bay views, dolphins often seen feeding close to shore. Free, beautiful, walkable.</div>
+            <span class="tl-tag tag-free">Free</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">🎣</div>
+          <div class="tl-content">
+            <div class="tl-time">Mid-Morning</div>
+            <div class="tl-label">St. Pete Pier</div>
+            <div class="tl-desc">600 2nd Ave NE · Free to walk. Stunning bay & skyline views, open-air seating, small aquarium (fee). Grab a coffee or snack. Tram available if needed.</div>
+            <span class="tl-tag tag-free">Free to walk</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-shop">🎨</div>
+          <div class="tl-content">
+            <div class="tl-time">Afternoon</div>
+            <div class="tl-label">Central Arts District, Central Ave</div>
+            <div class="tl-desc">Galleries, street art, independent shops. Window shopping and people-watching cost nothing — but the vibe is fantastic.</div>
+            <span class="tl-tag tag-free">Free browsing</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-glass">🔥</div>
+          <div class="tl-content">
+            <div class="tl-time">Afternoon (Option for Marie & Friend)</div>
+            <div class="tl-label">Morean Glass Studio — Downtown St. Pete</div>
+            <div class="tl-desc">714 1st Ave N · 4.7 ⭐ · Right in the arts district! Attached to the Chihuly Collection. Workshops & demos daily noon–5 PM. Book ahead: (727) 827-4527.</div>
+            <span class="tl-tag tag-glass">Glass Art</span><span class="tl-tag tag-art">Must Book</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🐟</div>
+          <div class="tl-content">
+            <div class="tl-time">Dinner</div>
+            <div class="tl-label">Rick's Reef on Gulf Blvd</div>
+            <div class="tl-desc">6712 Gulf Blvd — amazing fish tacos, grouper sandwiches, local favorite. Affordable and delicious.</div>
+            <span class="tl-tag tag-food">Dinner</span><span class="tl-tag tag-cheap">$</span>
+          </div>
+        </div>
+      </div>
+      <div class="wisdom-card">
+        <div class="wisdom-label">💛 Relationship Wisdom · Seven Principles</div>
+        <div class="wisdom-text">Gottman calls these small shared adventures "turning toward" each other. When one of you suggests something fun — like glass blowing — and the other says "yes, let's do it," that's a bid for connection being answered. Those moments add up.</div>
+        <div class="wisdom-source">— Gottman</div>
+      </div>
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-ocean"><span class="num">6</span><span class="lbl">Mar 11</span></div>
+      <div class="day-info">
+        <div class="day-title">Pure Beach Day 🐚</div>
+        <div class="day-subtitle">Wednesday · Total Relaxation</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">☀️</div>
+          <div class="tl-content">
+            <div class="tl-time">All Day</div>
+            <div class="tl-label">No Plans. Just Beach.</div>
+            <div class="tl-desc">Read a book. Walk the shore. Collect shells. Nap in the sun. March in Pass-a-Grille is warm, sunny, and low humidity — ideal beach weather. This day belongs to you.</div>
+            <span class="tl-tag tag-free">100% Free</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-sunset">🔔</div>
+          <div class="tl-content">
+            <div class="tl-time">Sunset</div>
+            <div class="tl-label">Paradise Grille Bell Ringing</div>
+            <div class="tl-desc">900 Gulf Way — walk over for the sunset tradition. A cold drink while the sun dips into the Gulf is hard to beat.</div>
+            <span class="tl-tag tag-free">Free to watch</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍹</div>
+          <div class="tl-content">
+            <div class="tl-time">Evening</div>
+            <div class="tl-label">Bumpers Bar & Grille</div>
+            <div class="tl-desc">8700 Gulf Blvd · A local dive bar gem with cold beer, burgers, and live music some nights. Cash-friendly, no pretense. Great spot for the whole group to unwind.</div>
+            <span class="tl-tag tag-food">Dinner / Drinks</span><span class="tl-tag tag-cheap">$</span>
+          </div>
+        </div>
+      </div>
+      <div class="wisdom-card">
+        <div class="wisdom-label">💛 Relationship Wisdom · Hold Me Tight</div>
+        <div class="wisdom-text">Dr. Sue Johnson calls it being "A.R.E." — Accessible, Responsive, Engaged. A day with no agenda is one of the best gifts you can give each other. No distractions, just presence.</div>
+        <div class="wisdom-source">— Johnson</div>
+      </div>
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-kelp"><span class="num">7</span><span class="lbl">Mar 12</span></div>
+      <div class="day-info">
+        <div class="day-title">Clearwater Beach Day</div>
+        <div class="day-subtitle">Thursday · Day Trip North</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🥐</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">Breakfast at Rental + Pack Picnic</div>
+            <div class="tl-desc">Make and bring lunch — saves money and there are great spots to eat at the park.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-nature">🏖️</div>
+          <div class="tl-content">
+            <div class="tl-time">Mid-Morning – Afternoon</div>
+            <div class="tl-label">Sand Key Park, Clearwater</div>
+            <div class="tl-desc">1060 Gulf Blvd · ~45 min north. Powder-white sand, clear water, often less crowded than main Clearwater Beach. $6/car all day. Food truck, restrooms, shell hunting.</div>
+            <span class="tl-tag tag-cheap">$6/car</span><span class="tl-tag tag-free">Picnic Lunch</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-shop">🎭</div>
+          <div class="tl-content">
+            <div class="tl-time">Late Afternoon (Optional)</div>
+            <div class="tl-label">Clearwater Beach Strip</div>
+            <div class="tl-desc">Short drive to browse shops and street performers. Free and fun — just window shopping.</div>
+            <span class="tl-tag tag-free">Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 8 -->
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-coral"><span class="num">8</span><span class="lbl">Mar 13</span></div>
+      <div class="day-info">
+        <div class="day-title">Explore & Eat Local</div>
+        <div class="day-subtitle">Friday · Laid Back Day</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🥐</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">La Croisette for Late Breakfast</div>
+            <div class="tl-desc">7401 Gulf Blvd · Open 7 AM–2 PM daily. French-style breakfast, homemade croissants, quiche Lorraine. Rated one of the best breakfast spots on the beach. Worth it!</div>
+            <span class="tl-tag tag-food">Breakfast</span><span class="tl-tag tag-cheap">$</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-glass">🔥</div>
+          <div class="tl-content">
+            <div class="tl-time">Afternoon (Marie & Friend)</div>
+            <div class="tl-label">Zen Glass Studio — St. Pete</div>
+            <div class="tl-desc">600 27th St S · 4.9 ⭐ with 751 reviews — THE best hot glassblowing in the area. Make wine glasses or pint glasses hands-on! Tue–Sat 10–5, Sun noon–5. Book ahead: (727) 323-3141. Private group of 4: ~$500 flat.</div>
+            <span class="tl-tag tag-glass">Hot Glassblowing</span><span class="tl-tag tag-art">Book Ahead!</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-shop">🛍️</div>
+          <div class="tl-content">
+            <div class="tl-time">Afternoon</div>
+            <div class="tl-label">Browse Pass-a-Grille Village</div>
+            <div class="tl-desc">Stroll the small galleries and shops along Gulf Way and Pass-a-Grille Way. The weekend art & craft market may be running too — check locally.</div>
+            <span class="tl-tag tag-free">Free browsing</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍖</div>
+          <div class="tl-content">
+            <div class="tl-time">Evening</div>
+            <div class="tl-label">Grillin N Chillin</div>
+            <div class="tl-desc">6708 Gulf Blvd · Opens 5 PM Thu–Sun. Local BBQ gem — brisket, pulled pork, collard greens, mac &amp; cheese. Outstanding Southern BBQ on the beach.</div>
+            <span class="tl-tag tag-food">Dinner</span><span class="tl-tag tag-cheap">$</span>
+          </div>
+        </div>
+      </div>
+      <div class="wisdom-card">
+        <div class="wisdom-label">💛 Relationship Wisdom · Five Love Languages</div>
+        <div class="wisdom-text">Sharing a new experience together — especially something creative and hands-on — is quality time at its finest. You're not just next to each other; you're fully present, laughing, making something real together.</div>
+        <div class="wisdom-source">— Chapman</div>
+      </div>
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-dusk"><span class="num">9</span><span class="lbl">Mar 14</span></div>
+      <div class="day-info">
+        <div class="day-title">Madeira Beach & John's Pass</div>
+        <div class="day-subtitle">Saturday · Day Trip</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">🌊</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning – Afternoon</div>
+            <div class="tl-label">Madeira Beach</div>
+            <div class="tl-desc">14400 Gulf Blvd · ~30 min north. Change of scenery — beautiful beach, ~$4/hr parking. Sugar-fine sand, clear Gulf water, very popular with locals.</div>
+            <span class="tl-tag tag-cheap">$4/hr parking</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-shop">🎣</div>
+          <div class="tl-content">
+            <div class="tl-time">Midday</div>
+            <div class="tl-label">John's Pass Village Boardwalk</div>
+            <div class="tl-desc">Right next to Madeira Beach. Free to enter — watch fishing boats come in, browse shops, grab affordable seafood. Great atmosphere.</div>
+            <span class="tl-tag tag-free">Free admission</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍽️</div>
+          <div class="tl-content">
+            <div class="tl-time">Evening</div>
+            <div class="tl-label">Group Dinner at the Rental</div>
+            <div class="tl-desc">Saturday night cook-in with your friends. Great night to make something special together.</div>
+            <span class="tl-tag tag-cheap">Cook-in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 10 -->
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-coral"><span class="num">10</span><span class="lbl">Mar 15</span></div>
+      <div class="day-info">
+        <div class="day-title">Day with Relatives</div>
+        <div class="day-subtitle">Sunday · Family Day</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-mom">👨‍👩‍👧</div>
+          <div class="tl-content">
+            <div class="tl-time">All Day</div>
+            <div class="tl-label">Spend the Day with Relatives</div>
+            <div class="tl-desc">Beach time together, a shared meal, leisurely walks. Head to the southernmost tip of Pass-a-Grille for views across the inlet. Keep it easy and social — no agenda needed.</div>
+            <span class="tl-tag tag-free">Easy Day</span>
+          </div>
+        </div>
+      </div>
+      <div class="wisdom-card">
+        <div class="wisdom-label">💛 Relationship Wisdom · Seven Principles</div>
+        <div class="wisdom-text">Gottman found that the happiest couples share a rich "love map" — deep knowledge of each other's worlds, including family. Days like this, spent with people who matter to you both, build that shared inner life.</div>
+        <div class="wisdom-source">— Gottman</div>
+      </div>
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-gold"><span class="num">11</span><span class="lbl">Mar 16</span></div>
+      <div class="day-info">
+        <div class="day-title">Ringling Museum + Mom Again ⭐</div>
+        <div class="day-subtitle">Monday · Sarasota Trip #2</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-art">🎨</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning · 10 AM</div>
+            <div class="tl-label">Ringling Museum of Art — FREE on Mondays!</div>
+            <div class="tl-desc">5401 Bay Shore Rd, Sarasota · World-class European masters, Baroque paintings, gorgeous Italian courtyard. Free every Monday. Get there when it opens — plan 2–3 hours. The grounds alone are stunning.</div>
+            <span class="tl-tag tag-free">FREE Monday!</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-glass">🔥</div>
+          <div class="tl-content">
+            <div class="tl-time">Late Morning (Marie & Friend)</div>
+            <div class="tl-label">Shattered Glass DIY — Sarasota</div>
+            <div class="tl-desc">2740 Stickney Point Rd · Perfect 5.0 ⭐ · Stained glass art, resin art — great for groups! Open daily except Friday. Near the Ringling route. (941) 554-4599.</div>
+            <span class="tl-tag tag-glass">Glass Art</span><span class="tl-tag tag-cheap">Book Ahead</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-mom">💛</div>
+          <div class="tl-content">
+            <div class="tl-time">Afternoon</div>
+            <div class="tl-label">Visit Mom Again</div>
+            <div class="tl-desc">Second visit to Beaurivage Ave. Take her to Bayfront Park (5 Bayfront Dr) if she'd enjoy the fresh air and waterfront views.</div>
+            <span class="tl-tag tag-mom">Family</span><span class="tl-tag tag-free">Free</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-car">🚗</div>
+          <div class="tl-content">
+            <div class="tl-time">Late Afternoon</div>
+            <div class="tl-label">Drive Home</div>
+            <div class="tl-desc">Top up at Sarasota Supercharger (5903 Honore Ave) if needed. Full day, well spent!</div>
+            <span class="tl-tag tag-charge">Optional Charge</span>
+          </div>
+        </div>
+      </div>
+      <div class="wisdom-card">
+        <div class="wisdom-label">💛 Relationship Wisdom · Hold Me Tight</div>
+        <div class="wisdom-text">Visiting a parent together is one of the most quietly powerful acts of partnership. Johnson writes that secure couples show up for each other's important relationships. Being there with Marie today says: "Your family matters to me."</div>
+        <div class="wisdom-source">— Johnson</div>
+      </div>
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-deep"><span class="num">12</span><span class="lbl">Mar 17</span></div>
+      <div class="day-info">
+        <div class="day-title">Final Full Day</div>
+        <div class="day-subtitle">Tuesday · Last Hurrah</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍳</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">Last Breakfast at Seahorse Restaurant</div>
+            <div class="tl-desc">800 Pass-a-Grille Way — one final visit to this beloved local spot. Or cook a big breakfast together at the rental.</div>
+            <span class="tl-tag tag-food">Breakfast</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">🐚</div>
+          <div class="tl-content">
+            <div class="tl-time">Day</div>
+            <div class="tl-label">Revisit Your Favorite Spots</div>
+            <div class="tl-desc">Fort De Soto if you loved it, or stay put and shell hunt, swim, and nap on the beach. No wrong answer.</div>
+            <span class="tl-tag tag-free">Free</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-sunset">🔔</div>
+          <div class="tl-content">
+            <div class="tl-time">Sunset</div>
+            <div class="tl-label">Final Bell at Paradise Grille</div>
+            <div class="tl-desc">One last sunset bell-ringing. Raise a toast to a wonderful trip — you've earned it.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍽️</div>
+          <div class="tl-content">
+            <div class="tl-time">Dinner</div>
+            <div class="tl-label">Splurge Option: The Dog Bar St. Pete Beach</div>
+            <div class="tl-desc">6801 Gulf Blvd · Great rooftop bar with Gulf views, craft cocktails, and solid food. Perfect celebratory last dinner spot with the group.</div>
+            <span class="tl-tag tag-food">Dinner</span><span class="tl-tag tag-cheap">$$</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-food">🍽️</div>
+          <div class="tl-content">
+            <div class="tl-time">Dinner (Budget Option)</div>
+            <div class="tl-label">Rick's Reef or Cook-in</div>
+            <div class="tl-desc">Splurge slightly at Rick's Reef or La Croisette, or cook a memorable last dinner at the rental with your crew.</div>
+          </div>
+        </div>
+      </div>
+      <div class="wisdom-card">
+        <div class="wisdom-label">💛 Relationship Wisdom · Five Love Languages</div>
+        <div class="wisdom-text">Chapman reminds us: "Don't wait for a special occasion to tell your partner what they mean to you." Tonight at dinner — or over that sunset drink — tell Marie one specific thing about this trip that you'll always remember about her.</div>
+        <div class="wisdom-source">— Chapman</div>
+      </div>
+  <div class="day-card" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-badge c-ocean"><span class="num">13</span><span class="lbl">Mar 18</span></div>
+      <div class="day-info">
+        <div class="day-title">Departure Day 👋</div>
+        <div class="day-subtitle">Wednesday · Homeward Bound</div>
+      </div>
+      <div class="day-chevron">›</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-food">☕</div>
+          <div class="tl-content">
+            <div class="tl-time">Morning</div>
+            <div class="tl-label">Pack Up & Clean the Rental</div>
+            <div class="tl-desc">Leave it as you found it. Make one last coffee, take one last look at the Gulf.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-car">⚡</div>
+          <div class="tl-content">
+            <div class="tl-time">Before Hitting the Highway</div>
+            <div class="tl-label">Charge at 34th St S Supercharger</div>
+            <div class="tl-desc">3637 34th St S, St. Pete · Near Wawa. Get a full charge before I-275/I-75 home. Safe travels!</div>
+            <span class="tl-tag tag-charge">Charge Up</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PLACES ═══════════════ -->
+<div id="places" class="section">
+  <div class="section-label">Key Spots</div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F5E9;">🍳</div>
+      <div><div class="info-title">Seahorse Restaurant</div><div class="info-subtitle">Pass-a-Grille Classic · Since 1938</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">800 Pass-a-Grille Way, St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">8 AM – 2:30 PM · <strong style="color:#E07A5F">Closed Tuesdays</strong></div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.6 · Shrimp & grits, Cuban toast, guacamole toast</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">+1 (727) 360-1734</div></div></div>
+    <div class="pill-row"><span class="pill">Walk from rental</span><span class="pill">Breakfast & Lunch</span><span class="pill">$</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FFF3E0;">🔔</div>
+      <div><div class="info-title">Paradise Grille</div><div class="info-subtitle">Sunset Tradition · Pass-a-Grille</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">900 Gulf Way, Pass-a-Grille Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">7 AM – 7 PM Daily</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.6 · Counter service, cold drinks, great sunset views</div></div></div>
+    <div class="highlight-box">🔔 <strong>Bell Ringing Tradition</strong> — Every evening at sunset, the bell rings. Free to watch, even if you don't buy anything. A must-do each evening!</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FCE4EC;">🐟</div>
+      <div><div class="info-title">Rick's Reef</div><div class="info-subtitle">Local Seafood Favorite</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">6712 Gulf Blvd, St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Mon–Fri 8 AM–1 AM · Sat–Sun 7 AM–1 AM</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.4 · Fish tacos (mahi), grouper sandwich, mac & cheese</div></div></div>
+    <div class="pill-row"><span class="pill">Breakfast & Dinner</span><span class="pill">$–$$</span><span class="pill">Local Favorite</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FFF3E0;">🥐</div>
+      <div><div class="info-title">La Croisette</div><div class="info-subtitle">French Breakfast · St. Pete Beach</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">7401 Gulf Blvd, St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">7 AM – 2 PM Daily</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.8 · Homemade croissants, quiche Lorraine, crêpes</div></div></div>
+    <div class="pill-row"><span class="pill">Rated #1 Breakfast</span><span class="pill">$</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F5E9;">🏰</div>
+      <div><div class="info-title">Fort De Soto Park</div><div class="info-subtitle">Tierra Verde · Day 3 Destination</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">3500 Pinellas Bayway S, Tierra Verde</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🚗</div><div class="info-row-content"><div class="info-row-value">~20 min south of Pass-a-Grille</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-value">$5/vehicle · Civil War fort, Gulf beach, nature trail, fishing pier</div></div></div>
+    <div class="pill-row"><span class="pill">Best Park in Area</span><span class="pill">$5/car</span><span class="pill">Group Outing</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F4F8;">🏖️</div>
+      <div><div class="info-title">Sand Key Park</div><div class="info-subtitle">Clearwater · Day 7 Destination</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">1060 Gulf Blvd, Clearwater</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🚗</div><div class="info-row-content"><div class="info-row-value">~45 min north</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-value">$6/car all day · Powder-white sand, shells, food truck</div></div></div>
+    <div class="pill-row"><span class="pill">Rating 4.7 ⭐</span><span class="pill">$6/car</span><span class="pill">Less Crowded</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#EDE7F6;">🎨</div>
+      <div><div class="info-title">Ringling Museum of Art</div><div class="info-subtitle">Sarasota · FREE on Mondays</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">5401 Bay Shore Rd, Sarasota</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Mon 10 AM–5 PM (FREE) · Thu until 8 PM</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">+1 (941) 359-5700</div></div></div>
+    <div class="highlight-box">⭐ <strong>Visit on Monday March 16</strong> — the main art museum and grounds are completely free. European masters, Italian courtyard, lush gardens. Allow 2–3 hours.</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F4F8;">🎣</div>
+      <div><div class="info-title">St. Pete Pier</div><div class="info-subtitle">Downtown St. Petersburg · Day 5</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">600 2nd Ave NE, St. Petersburg</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-value">Free to walk · Parking $2/hr nearby</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.7 · Great bay views, tram, vendor booths, aquarium</div></div></div>
+    <div class="pill-row"><span class="pill">Free to Walk</span><span class="pill">Dolphin Watching</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F5E9;">🍖</div>
+      <div><div class="info-title">Grillin N Chillin</div><div class="info-subtitle">Gulf Blvd BBQ Gem</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">6708 Gulf Blvd, St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Thu–Sun · Opens 5 PM · <strong style="color:#E07A5F">Closed Mon–Wed</strong></div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Brisket, pulled pork, collard greens, mac & cheese. Outstanding Southern BBQ on the beach.</div></div></div>
+    <div class="pill-row"><span class="pill">Dinner Only</span><span class="pill">Thu–Sun</span><span class="pill">$</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FCE4EC;">🍹</div>
+      <div><div class="info-title">Bumpers Bar & Grille</div><div class="info-subtitle">Local Dive Bar Gem</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">8700 Gulf Blvd, St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Cold beer, burgers, cash-friendly, no pretense. Live music some nights. Great for the whole group.</div></div></div>
+    <div class="pill-row"><span class="pill">Dinner / Drinks</span><span class="pill">Local Vibe</span><span class="pill">$</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F4F8;">🌅</div>
+      <div><div class="info-title">The Dog Bar St. Pete Beach</div><div class="info-subtitle">Rooftop Views · Splurge Option</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">6801 Gulf Blvd, St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Rooftop bar with Gulf views, craft cocktails, solid food. Perfect for a celebratory dinner.</div></div></div>
+    <div class="pill-row"><span class="pill">Rooftop Views</span><span class="pill">Dinner</span><span class="pill">$$</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FFF8E1;">🌮</div>
+      <div><div class="info-title">Woody's Waterfront</div><div class="info-subtitle">St. Pete Beach · Casual Waterfront Dining</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">7510 Gulf Blvd, St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Waterfront patio, grouper tacos, cold drinks. Very laid-back Gulf Coast atmosphere. A local staple.</div></div></div>
+    <div class="pill-row"><span class="pill">Waterfront Patio</span><span class="pill">Lunch & Dinner</span><span class="pill">$</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FCE4EC;">💛</div>
+      <div><div class="info-title">Mom's Place</div><div class="info-subtitle">Beaurivage Ave., Sarasota</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Visit #1 — Day 4, Monday March 9</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Visit #2 — Day 11, Monday March 16</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🚗</div><div class="info-row-content"><div class="info-row-value">~60 miles · I-275 S to I-75 S · ~1 hour</div></div></div>
+    <div class="highlight-box">🌿 <strong>Nearby outing idea:</strong> Sarasota Bayfront Park (5 Bayfront Dr) — beautiful free waterfront park, easy walking, benches, bay views. Perfect if Mom wants to get out.</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ GLASS ART ═══════════════ -->
+<div id="glass" class="section">
+  <div class="section-label">Glass Art Studios · Marie & Friend</div>
+
+  <div class="info-card" style="border-left: 4px solid #8B4513;">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#F3E5F5;">🔥</div>
+      <div><div class="info-title">Zen Glass Studio & Gallery</div><div class="info-subtitle">St. Petersburg · Best Hot Glassblowing · ⭐ 4.9</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">600 27th St S, St. Petersburg, FL</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Tue–Sat 10 AM–5 PM · Sun Noon–5 PM · Closed Monday</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(727) 323-3141 · zenglass.com</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-label">Pricing for 4 People</div><div class="info-row-value">Private group (up to 4): $500 flat = $125/person · Individual workshops: $100/person</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🍷</div><div class="info-row-content"><div class="info-row-value">Make-Your-Own Wineglass, pint glass, ornament, or paperweight — hands-on with an instructor. 751 reviews — genuinely exceptional.</div></div></div>
+    <div class="highlight-box">🔥 <strong>Top Recommendation</strong> — Book the private session for 4. No strangers, your own instructor, your own pace. Best glass experience in the Tampa Bay area. Book <em>soon</em> — March is busy season!</div>
+    <div class="pill-row"><span class="pill">Plan Day 8 (Fri Mar 13)</span><span class="pill">Call to Book</span><span class="pill">4.9 ⭐ · 751 Reviews</span></div>
+  </div>
+
+  <div class="info-card" style="border-left: 4px solid #9C27B0;">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#EDE7F6;">🏺</div>
+      <div><div class="info-title">Morean Glass Studio</div><div class="info-subtitle">Downtown St. Pete · Chihuly Next Door · ⭐ 4.7</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">714 1st Ave N, St. Petersburg, FL (Arts District)</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Daily Noon–5 PM · Demos & workshops available</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(727) 827-4527 · moreanartscenter.org</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🎨</div><div class="info-row-content"><div class="info-row-value">Right next to the Chihuly Collection museum — make a full art afternoon of it on Day 5!</div></div></div>
+    <div class="pill-row"><span class="pill">Plan Day 5 (Tue Mar 10)</span><span class="pill">Downtown Arts Day</span></div>
+  </div>
+
+  <div class="info-card" style="border-left: 4px solid #E07A5F;">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FFF3E0;">🌊</div>
+      <div><div class="info-title">Shattered Glass DIY — St. Pete Beach</div><div class="info-subtitle">Closest to Rental · ⭐ 5.0 Perfect Rating</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">4615 Gulf Blvd, St. Pete Beach — walkable!</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Wed–Mon 11 AM–4 PM · <strong style="color:#E07A5F">Closed Tuesdays</strong></div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(727) 201-9283 · shatteredglassdiy.com/stpetebeach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🎨</div><div class="info-row-content"><div class="info-row-value">Stained glass & resin art — not hot glassblowing, but a fantastic couples/group activity. 528 reviews, perfect score!</div></div></div>
+    <div class="highlight-box">🏆 <strong>Easiest option</strong> — literally on Gulf Blvd, no driving needed. Great rainy-day backup plan or spontaneous afternoon activity.</div>
+    <div class="pill-row"><span class="pill">Walk from Rental</span><span class="pill">Any Afternoon</span><span class="pill">5.0 ⭐ Perfect</span></div>
+  </div>
+
+  <div class="info-card" style="border-left: 4px solid #3D7A5C;">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F5E9;">🔥</div>
+      <div><div class="info-title">Shattered Glass DIY — Sarasota</div><div class="info-subtitle">Sarasota Visit Days · ⭐ 5.0</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">2740 Stickney Point Rd, Sarasota, FL</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Daily except Friday</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(941) 554-4599</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Pair with Day 11 Ringling Museum visit — great combo on the Monday Sarasota trip</div></div></div>
+    <div class="pill-row"><span class="pill">Plan Day 11 (Mon Mar 16)</span><span class="pill">Sarasota Trip Day</span></div>
+  </div>
+
+  <div class="info-card" style="background: linear-gradient(135deg, #F3E5F5, #EDE7F6);">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:white;">📋</div>
+      <div><div class="info-title">Booking Tips</div><div class="info-subtitle">Don't Wait — March is Busy Season!</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">1️⃣</div><div class="info-row-content"><div class="info-row-value"><strong>Call Zen Glass first</strong> — ask about a private session for 4, early in the week (Day 8, Fri Mar 13 works great)</div></div></div>
+    <div class="info-row"><div class="info-row-icon">2️⃣</div><div class="info-row-content"><div class="info-row-value"><strong>Shattered Glass St. Pete Beach</strong> needs no booking — walk in on any free afternoon</div></div></div>
+    <div class="info-row"><div class="info-row-icon">3️⃣</div><div class="info-row-content"><div class="info-row-value"><strong>Sarasota Shattered Glass</strong> — call ahead for Day 11 to confirm a Monday slot is open</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💡</div><div class="info-row-content"><div class="info-row-value">Zen Glass online booking: book.peek.com/s/83ed8428-3395-45ce-808a-36f5878cb5d4/ZEqD</div></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHARGING ═══════════════ -->
+<div id="charging" class="section">
+  <div class="section-label">Tesla Superchargers</div>
+
+  <div class="info-card" style="border-left: 4px solid var(--ocean);">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E3F2FD;">⚡</div>
+      <div><div class="info-title">St. Pete Supercharger #1</div><div class="info-subtitle">Main Charging Stop · Near Rental</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">3637 34th St S, St. Petersburg, FL 33711</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Open 24 hours · 7 days</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⚡</div><div class="info-row-content"><div class="info-row-value">250 kW V3 Superchargers · Very fast</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🛒</div><div class="info-row-content"><div class="info-row-value">Next to Wawa — coffee, snacks, sandwiches, ATM</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Use before Sarasota trips (Day 4, Day 11) and on Departure Day 13</div></div></div>
+    <div class="pill-row"><span class="pill">~15 min from rental</span><span class="pill">Rated 4.5 ⭐</span><span class="pill">Always available</span></div>
+  </div>
+
+  <div class="info-card" style="border-left: 4px solid var(--kelp);">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F5E9;">⚡</div>
+      <div><div class="info-title">St. Pete Supercharger #2</div><div class="info-subtitle">22nd Ave N (Lowe's) · 20 chargers</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">22nd Ave N #2465, St. Petersburg, FL 33713</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Open 24 hours · 7 days</div></div></div>
+    <div class="info-row"><div class="info-row-icon">⚡</div><div class="info-row-content"><div class="info-row-value">20 chargers + V4 chargers next door · Magic dock (works with other EVs)</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🛒</div><div class="info-row-content"><div class="info-row-value">Lowe's and Wawa nearby</div></div></div>
+    <div class="pill-row"><span class="pill">Backup Option</span><span class="pill">30 total chargers</span></div>
+  </div>
+
+  <div class="info-card" style="border-left: 4px solid var(--coral);">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FCE4EC;">⚡</div>
+      <div><div class="info-title">Sarasota Supercharger</div><div class="info-subtitle">Use on Sarasota Visit Days</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">5903 Honore Ave, Sarasota, FL 34243</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Open 24 hours · 7 days</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🛒</div><div class="info-row-content"><div class="info-row-value">Near Whole Foods · Shop while you charge</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💡</div><div class="info-row-content"><div class="info-row-value">Tip: Use the longer wall of chargers — they're the faster 150W units</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Use on return from Day 4 or Day 11 if needed</div></div></div>
+    <div class="pill-row"><span class="pill">Rated 4.7 ⭐</span><span class="pill">Optional top-up</span></div>
+  </div>
+
+  <div class="info-card" style="background: linear-gradient(135deg, #E8F4F8, #E8F5E9);">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:white;">🚗</div>
+      <div><div class="info-title">Range Planning</div><div class="info-subtitle">2018 Tesla Model 3</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">🔋</div><div class="info-row-content"><div class="info-row-label">Estimated Range</div><div class="info-row-value">220–310 miles per full charge (depending on variant)</div></div></div>
+    <div class="info-divider"></div>
+    <div class="info-row"><div class="info-row-icon">📏</div><div class="info-row-content"><div class="info-row-label">Pass-a-Grille → Sarasota</div><div class="info-row-value">~60 miles one way · ~130 miles round trip · Well within one charge</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📏</div><div class="info-row-content"><div class="info-row-label">Pass-a-Grille → Clearwater</div><div class="info-row-value">~35 miles one way · ~70 miles round trip · No charging needed</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📏</div><div class="info-row-content"><div class="info-row-label">Pass-a-Grille → Madeira Beach</div><div class="info-row-value">~20 miles one way · No charging needed</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📏</div><div class="info-row-content"><div class="info-row-label">Fort De Soto</div><div class="info-row-value">~10 miles south · No charging needed</div></div></div>
+    <div class="highlight-box"><strong>💡 Strategy:</strong> For most days you won't need to charge at all. Just charge before the two Sarasota trips (Days 4 & 11) at the 34th St S Supercharger. Local beach driving barely touches the battery.</div>
+  </div>
+</div>
+
+<!-- ═══════════════ TIPS ═══════════════ -->
+<div id="tips" class="section">
+  <div class="section-label">Smart Travel Tips</div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F4F8;">🛺</div>
+      <div><div class="info-title">The Freebee Shuttle</div><div class="info-subtitle">Free Electric On-Demand Rides · You're Already Signed Up!</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">You've already downloaded the app and signed up — great!</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🗺️</div><div class="info-row-content"><div class="info-row-value">Covers all of St. Pete Beach · Door-to-door on demand</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🐾</div><div class="info-row-content"><div class="info-row-value">Pet-friendly! Booster seats available for children</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💡</div><div class="info-row-content"><div class="info-row-value">Use it to reach restaurants, Paradise Grille, beach access points — saves parking fees and hassle</div></div></div>
+    <div class="highlight-box">🚫 <strong>Tips not expected</strong> — drivers are city-compensated. Just enjoy the ride and flag one down or request in the app.</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#FFF3E0;">🅿️</div>
+      <div><div class="info-title">Parking Tips</div><div class="info-subtitle">Save on Parking Fees</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">🌙</div><div class="info-row-content"><div class="info-row-label">Free After 8 PM</div><div class="info-row-value">Pass-a-Grille street parking is free 8 PM – 8 AM. Park early evening and walk or Freebee everywhere.</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🚶</div><div class="info-row-content"><div class="info-row-label">Use the Freebee</div><div class="info-row-value">Skip moving the Tesla for short trips around St. Pete Beach — the Freebee handles it for free.</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🅿️</div><div class="info-row-content"><div class="info-row-label">St. Pete Pier Parking</div><div class="info-row-value">$2/hr in nearby lots. Not bad for a city waterfront. Go early on weekdays to find spots.</div></div></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F5E9;">🛒</div>
+      <div><div class="info-title">Food & Money Tips</div><div class="info-subtitle">Stretch Your Budget Further</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">🥐</div><div class="info-row-content"><div class="info-row-label">Cook Breakfasts In</div><div class="info-row-value">This single habit saves the most money. Stock up at Publix on arrival — eggs, bread, fruit, coffee.</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🥪</div><div class="info-row-content"><div class="info-row-label">Pack Picnic Lunches for Day Trips</div><div class="info-row-value">Fort De Soto, Sand Key Park, and Madeira Beach all have great spots to eat your own food.</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🍽️</div><div class="info-row-content"><div class="info-row-label">Dine Out Strategically</div><div class="info-row-value">Seahorse, Rick's Reef, La Croisette, and Paradise Grille are all locally owned and affordable.</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🍖</div><div class="info-row-content"><div class="info-row-label">Grillin N Chillin</div><div class="info-row-value">Only open Thu–Sun from 5 PM. Plan your BBQ night around their schedule — it's worth it.</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🎨</div><div class="info-row-content"><div class="info-row-label">Ringling Museum — Go on Monday!</div><div class="info-row-value">Free every Monday. You're going March 16 — perfect. Save ~$25/person vs. a paid day.</div></div></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#E8F4F8;">❤️</div>
+      <div><div class="info-title">Relationship Wisdom for the Trip</div><div class="info-subtitle">From Your Three Beach Reads</div></div>
+    </div>
+    <div class="wisdom-card" style="margin-bottom:10px;">
+      <div class="wisdom-label">Five Love Languages · Chapman</div>
+      <div class="wisdom-text">Ask Marie each morning: "What would make today feel special for you?" It takes 30 seconds and fills her love tank in ways you might not anticipate.</div>
+      <div class="wisdom-source">— Chapman</div>
+    </div>
+    <div class="wisdom-card" style="margin-bottom:10px;">
+      <div class="wisdom-label">Seven Principles · Gottman</div>
+      <div class="wisdom-text">Happy couples have a 5:1 ratio — five positive interactions for every negative one. On a vacation, you have every opportunity to tip that ratio way in your favor. Notice the good things Marie does and say so out loud.</div>
+      <div class="wisdom-source">— Gottman</div>
+    </div>
+    <div class="wisdom-card">
+      <div class="wisdom-label">Hold Me Tight · Johnson</div>
+      <div class="wisdom-text">Try this on a quiet beach evening: ask each other "What's one thing about this trip that you want to remember forever?" Then really listen. Don't fix or advise — just receive.</div>
+      <div class="wisdom-source">— Johnson</div>
+    </div>
+  </div>
+
+
+      <div><div class="info-title">Weather Expectations</div><div class="info-subtitle">March in Pass-a-Grille</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">🌡️</div><div class="info-row-content"><div class="info-row-value">Highs typically 72–80°F · Low humidity · Sunny most days</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🌊</div><div class="info-row-content"><div class="info-row-value">Gulf water temp around 68–72°F — refreshing but swimmable</div></div></div>
+    <div class="info-row"><div class="info-row-icon">💨</div><div class="info-row-content"><div class="info-row-value">Light Gulf breezes most days — bring a light layer for evenings</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🌧️</div><div class="info-row-content"><div class="info-row-value">Occasional afternoon shower possible but rarely lasts long · Florida sun returns quickly</div></div></div>
+    <div class="highlight-box"><strong>March is peak season</strong> for a reason — it's one of the best times to visit the Gulf Coast. You timed this perfectly! 🌴</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:#EDE7F6;">🐬</div>
+      <div><div class="info-title">Wildlife to Watch For</div><div class="info-subtitle">Free Natural Entertainment</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">🐬</div><div class="info-row-content"><div class="info-row-value">Dolphins — common in the Gulf and Tampa Bay, especially at Vinoy Park waterfront</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🐚</div><div class="info-row-content"><div class="info-row-value">Shelling — the Pass-a-Grille southwest tip and Fort De Soto are the best spots</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🦅</div><div class="info-row-content"><div class="info-row-value">Brown pelicans, ospreys, herons are everywhere · Free birdwatching all day</div></div></div>
+    <div class="info-row"><div class="info-row-icon">🦁</div><div class="info-row-content"><div class="info-row-value">Manatees occasionally spotted near the jetty at Pass-a-Grille</div></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ BUDGET ═══════════════ -->
+<div id="budget" class="section">
+  <div class="section-label">Estimated Daily Costs (per couple + friends splitting)</div>
+
+  <div class="info-card">
+    <div class="budget-row">
+      <div><div class="budget-category">🛒 Groceries & Rental Meals</div><div class="budget-tip">Breakfast every day + most lunches at rental</div></div>
+      <div class="budget-estimate">~$150</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-category">🍽️ Dining Out (Select Days)</div><div class="budget-tip">Seahorse ×2, Rick's Reef ×2, La Croisette ×1, Grillin N Chillin ×1, misc</div></div>
+      <div class="budget-estimate">~$180</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-category">🏖️ Park Admissions</div><div class="budget-tip">Fort De Soto $5 · Sand Key $6 · Madeira Beach ~$16 · Ringling FREE</div></div>
+      <div class="budget-estimate">~$27</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-category">🅿️ Parking (occasional)</div><div class="budget-tip">St. Pete Pier day + misc metered parking · Freebee handles most St. Pete Beach trips</div></div>
+      <div class="budget-estimate">~$20</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-category">⚡ Tesla Charging</div><div class="budget-tip">Two Sarasota round trips + departure charge · ~26 kWh each way at ~$0.35/kWh</div></div>
+      <div class="budget-estimate">~$20</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-category">🍹 Drinks & Extras</div><div class="budget-tip">Sunset drinks at Paradise Grille, ice cream, incidentals</div></div>
+      <div class="budget-estimate">~$60</div>
+    </div>
+
+    <div class="budget-total">
+      <div>
+        <div class="budget-total-label">Estimated Trip Total</div>
+        <div style="font-size:11px; opacity:0.55; margin-top:2px;">For 2 people · excl. rental & accommodation</div>
+      </div>
+      <div class="budget-total-amount">~$457</div>
+    </div>
+  </div>
+
+  <div class="info-card" style="background:linear-gradient(135deg,#E8F5E9,#E8F4F8);">
+    <div class="info-card-header">
+      <div class="info-icon" style="background:white;">💚</div>
+      <div><div class="info-title">Free Things You'll Do</div><div class="info-subtitle">No cost = maximum value</div></div>
+    </div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">All beach days at Pass-a-Grille</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Every sunset bell-ringing at Paradise Grille</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">St. Pete Pier walk & waterfront</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Vinoy Park & North Straub Park (dolphins!)</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">John's Pass Village Boardwalk</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Ringling Museum (Monday March 16)</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Sarasota Bayfront Park</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Shell hunting everywhere</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Freebee shuttle rides all of St. Pete Beach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Central Arts District & gallery browsing</div></div></div>
+    <div class="info-row"><div class="info-row-icon">✅</div><div class="info-row-content"><div class="info-row-value">Pass-a-Grille Weekend Art Market (weather permitting)</div></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ BOTTOM NAV ═══════════════ -->
+<div class="bottom-nav">
+  <button class="nav-btn active" id="nav-itinerary" onclick="showSection('itinerary', null, this)">
+    <span class="nav-icon">📅</span>Itinerary
+  </button>
+  <button class="nav-btn" id="nav-places" onclick="showSection('places', null, this)">
+    <span class="nav-icon">📍</span>Places
+  </button>
+  <button class="nav-btn" id="nav-glass" onclick="showSection('glass', null, this)">
+    <span class="nav-icon">🔥</span>Glass
+  </button>
+  <button class="nav-btn" id="nav-charging" onclick="showSection('charging', null, this)">
+    <span class="nav-icon">⚡</span>Charging
+  </button>
+  <button class="nav-btn" id="nav-tips" onclick="showSection('tips', null, this)">
+    <span class="nav-icon">💡</span>Tips
+  </button>
+  <button class="nav-btn" id="nav-budget" onclick="showSection('budget', null, this)">
+    <span class="nav-icon">💰</span>Budget
+  </button>
+</div>
+
+<script>
+  // Generate a beautiful app icon via canvas
+  (function() {
+    const c = document.createElement('canvas');
+    c.width = 180; c.height = 180;
+    const ctx = c.getContext('2d');
+
+    // Sky gradient
+    const sky = ctx.createLinearGradient(0, 0, 0, 110);
+    sky.addColorStop(0,   '#0D3D5E');
+    sky.addColorStop(0.5, '#1B6CA8');
+    sky.addColorStop(1,   '#F4A261');
+    ctx.fillStyle = sky;
+    ctx.roundRect(0, 0, 180, 180, 28);
+    ctx.fill();
+
+    // Sun
+    const sunGrad = ctx.createRadialGradient(90, 95, 2, 90, 95, 28);
+    sunGrad.addColorStop(0, '#FFE066');
+    sunGrad.addColorStop(1, '#F4A261');
+    ctx.beginPath();
+    ctx.arc(90, 95, 28, 0, Math.PI * 2);
+    ctx.fillStyle = sunGrad;
+    ctx.fill();
+
+    // Ocean
+    const ocean = ctx.createLinearGradient(0, 108, 0, 180);
+    ocean.addColorStop(0, '#1B6CA8');
+    ocean.addColorStop(1, '#0D3D5E');
+    ctx.fillStyle = ocean;
+    ctx.beginPath();
+    ctx.moveTo(0, 115);
+    ctx.bezierCurveTo(45, 105, 90, 125, 135, 110);
+    ctx.bezierCurveTo(155, 104, 168, 112, 180, 108);
+    ctx.lineTo(180, 180); ctx.lineTo(0, 180);
+    ctx.closePath();
+    ctx.fill();
+
+    // Sun shimmer on water
+    ctx.fillStyle = 'rgba(255,224,102,0.25)';
+    ctx.beginPath();
+    ctx.ellipse(90, 130, 18, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Palm tree trunk
+    ctx.strokeStyle = '#7B4F2E';
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(38, 160);
+    ctx.bezierCurveTo(34, 130, 28, 100, 40, 70);
+    ctx.stroke();
+
+    // Palm fronds
+    const fronds = [
+      [40, 70, 10, 50],
+      [40, 70, 68, 58],
+      [40, 70, 20, 88],
+      [40, 70, 62, 80],
+    ];
+    ctx.strokeStyle = '#3D7A5C';
+    ctx.lineWidth = 3;
+    fronds.forEach(([sx, sy, ex, ey]) => {
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+      ctx.quadraticCurveTo(sx + (ex-sx)*0.5 - 8, sy + (ey-sy)*0.3, ex, ey);
+      ctx.stroke();
+    });
+
+    // Shell emoji substitute — a small wave symbol bottom right
+    ctx.font = 'bold 28px serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.fillText('🌊', 118, 168);
+
+    document.getElementById('appIcon').href = c.toDataURL('image/png');
+  })();
+
+  function showSection(id, tabBtn, navBtn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    if (tabBtn) tabBtn.classList.add('active');
+    if (navBtn) navBtn.classList.add('active');
+    const matchingNav = document.getElementById('nav-' + id);
+    if (matchingNav) matchingNav.classList.add('active');
+    const matchingTab = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.textContent.toLowerCase().includes(id.slice(0,4)));
+    if (matchingTab) matchingTab.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function toggleDay(card) {
+    const wasOpen = card.classList.contains('open');
+    document.querySelectorAll('.day-card.open').forEach(c => c.classList.remove('open'));
+    if (!wasOpen) card.classList.add('open');
+  }
+</script>
+</body>
+</html>
