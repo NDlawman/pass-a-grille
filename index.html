@@ -95,35 +95,6 @@
   .header-dates span { color: rgba(255,255,255,0.4); }
 
   /* ── NAV TABS ── */
-  .nav-tabs {
-    display: flex;
-    gap: 0;
-    padding: 20px 16px 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .nav-tabs::-webkit-scrollbar { display: none; }
-  .tab-btn {
-    flex-shrink: 0;
-    padding: 9px 16px;
-    border: none;
-    background: rgba(27,108,168,0.08);
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 20px;
-    margin-right: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .tab-btn.active {
-    background: var(--ocean);
-    color: white;
-  }
-
   /* ── SECTIONS ── */
   .section { display: none; padding: 20px 16px 80px; }
   .section.active { display: block; }
@@ -401,6 +372,49 @@
   .nav-btn.active { color: var(--ocean); }
   .nav-btn .nav-icon { font-size: 22px; }
 
+  /* ── ALTERNATIVES TOGGLE ── */
+  .alt-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #F5F7FA;
+    border-radius: 12px;
+    border: 1.5px dashed #C5D5E8;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ocean);
+    user-select: none;
+  }
+  .alt-toggle .alt-chevron {
+    margin-left: auto;
+    font-size: 14px;
+    transition: transform 0.25s;
+    color: var(--muted);
+  }
+  .alt-body {
+    display: none;
+    margin-top: 8px;
+    padding: 12px 14px;
+    background: #F5F7FA;
+    border-radius: 12px;
+    border: 1.5px dashed #C5D5E8;
+  }
+  .alt-body.open { display: block; }
+  .alt-item {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #DDE8F0;
+    font-size: 12.5px;
+  }
+  .alt-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .alt-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alt-label { font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .alt-desc { color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+
   /* Color palettes for day badges */
   .c-ocean { background: linear-gradient(135deg, #1B6CA8, #2A9D8F); }
   .c-coral { background: linear-gradient(135deg, #E07A5F, #F4A261); }
@@ -470,14 +484,7 @@
   <div class="header-dates">Mar 6 <span>→</span> Mar 18 · 13 Days</div>
 </div>
 
-<div class="nav-tabs">
-  <button class="tab-btn active" onclick="showSection('itinerary', this)">📅 Itinerary</button>
-  <button class="tab-btn" onclick="showSection('places', this)">📍 Places</button>
-  <button class="tab-btn" onclick="showSection('glass', this)">🔥 Glass Art</button>
-  <button class="tab-btn" onclick="showSection('charging', this)">⚡ Charging</button>
-  <button class="tab-btn" onclick="showSection('tips', this)">💡 Tips</button>
-  <button class="tab-btn" onclick="showSection('budget', this)">💰 Budget</button>
-</div>
+
 
 <!-- ═══════════════ ITINERARY ═══════════════ -->
 <div id="itinerary" class="section active">
@@ -528,6 +535,19 @@
         <div class="wisdom-text">"Love is a choice — and the most powerful choice you can make for your relationship." This trip is quality time in action. Every shared sunset fills Marie's love tank.</div>
         <div class="wisdom-source">— Chapman</div>
       </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Arrival Day Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🍹</div>
+          <div><div class="alt-label">Skip Paradise Grille — Try Woody's Waterfront</div><div class="alt-desc">7510 Gulf Blvd · Waterfront patio, cold drinks, casual vibe. Great first-night option if you want a proper sit-down welcome drink.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🚶</div>
+          <div><div class="alt-label">Evening Beach Walk Instead</div><div class="alt-desc">Skip the restaurant entirely — just walk the shoreline at dusk. The Pass-a-Grille southwest tip is magical at golden hour and totally free.</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -571,6 +591,19 @@
           </div>
         </div>
       </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Day 2 Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🥐</div>
+          <div><div class="alt-label">La Croisette Instead of Seahorse</div><div class="alt-desc">7401 Gulf Blvd · If Seahorse has a wait, head to La Croisette for homemade croissants and quiche. Rated #1 breakfast in the area. Open 7 AM–2 PM daily.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🍖</div>
+          <div><div class="alt-label">Grillin N Chillin for Dinner (Sat Only)</div><div class="alt-desc">6708 Gulf Blvd · Open Thu–Sun from 5 PM. If the group wants something special instead of cooking in, this is the move — outstanding BBQ brisket and pulled pork.</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -612,6 +645,19 @@
             <div class="tl-desc">Head home and relax. The sunset is always worth walking out for.</div>
             <span class="tl-tag tag-free">Free</span>
           </div>
+        </div>
+      </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Day 3 Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🏖️</div>
+          <div><div class="alt-label">Sand Key Park Instead</div><div class="alt-desc">1060 Gulf Blvd, Clearwater · ~45 min north. If the group prefers a beach day over a park/fort visit, Sand Key is stunning — powder-white sand, $6/car, less crowded than Clearwater Beach.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🚢</div>
+          <div><div class="alt-label">Shell Key Shuttle</div><div class="alt-desc">Departs from Pass-a-Grille · Short ferry to an uninhabited barrier island. Outstanding shelling and dolphin spotting. Check shellkeyshuttle.com for schedule and fares (~$25/person).</div></div>
         </div>
       </div>
     </div>
@@ -732,6 +778,23 @@
         <div class="wisdom-text">Gottman calls these small shared adventures "turning toward" each other. When one of you suggests something fun — like glass blowing — and the other says "yes, let's do it," that's a bid for connection being answered. Those moments add up.</div>
         <div class="wisdom-source">— Gottman</div>
       </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Day 5 Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🎨</div>
+          <div><div class="alt-label">Salvador Dalí Museum</div><div class="alt-desc">1 Dali Blvd, St. Pete · One of the largest Dalí collections outside Spain. ~$25/person. Surreal, stunning, and unforgettable. Easy to pair with the Pier on the same day.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🍻</div>
+          <div><div class="alt-label">St. Pete Craft Brewery Crawl</div><div class="alt-desc">Central Ave has 10+ breweries within walking distance. 3 Daughters Brewing, Green Bench, Cage Brewing. Great afternoon option instead of or after the arts district.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🔥</div>
+          <div><div class="alt-label">Shattered Glass DIY Instead of Morean</div><div class="alt-desc">4615 Gulf Blvd · Walkable from Pass-a-Grille area. Drop-in friendly, no formal booking needed. Great if Morean is fully booked.</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -780,6 +843,19 @@
         <div class="wisdom-text">Dr. Sue Johnson calls it being "A.R.E." — Accessible, Responsive, Engaged. A day with no agenda is one of the best gifts you can give each other. No distractions, just presence.</div>
         <div class="wisdom-source">— Johnson</div>
       </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Day 6 Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🚢</div>
+          <div><div class="alt-label">Shell Key Shuttle Day Trip</div><div class="alt-desc">Departs from Pass-a-Grille marina · Ferry to a deserted barrier island. Best shelling on the Gulf Coast, dolphins alongside the boat. ~$25/person. Check shellkeyshuttle.com.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🎣</div>
+          <div><div class="alt-label">Fishing Charter</div><div class="alt-desc">Several operators depart from the Pass-a-Grille area. Half-day charters typically run $60–80/person. Great group activity — snook, redfish, and flounder are common catches.</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -820,6 +896,23 @@
             <div class="tl-desc">Short drive to browse shops and street performers. Free and fun — just window shopping.</div>
             <span class="tl-tag tag-free">Free</span>
           </div>
+        </div>
+      </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Day 7 Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🐬</div>
+          <div><div class="alt-label">Clearwater Marine Aquarium</div><div class="alt-desc">249 Windward Passage, Clearwater · Home of Winter the dolphin (inspiration for Dolphin Tale). Great if anyone in the group has kids or animal lovers. ~$30/person.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🏖️</div>
+          <div><div class="alt-label">Clearwater Beach Instead of Sand Key</div><div class="alt-desc">More amenities, more activity, slightly more crowded — but it's a bucket-list Florida beach. Pier 60 at sunset is iconic. Parking is pricier but walkable to everything.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">⛵</div>
+          <div><div class="alt-label">Clearwater Ferry or Sunset Cruise</div><div class="alt-desc">Several cruise operators depart from Clearwater Beach marina. Dolphin watching and sunset cruises run ~$30–50/person. Great group activity while you're already up that way.</div></div>
         </div>
       </div>
     </div>
@@ -887,39 +980,61 @@
     <div class="day-header">
       <div class="day-badge c-dusk"><span class="num">9</span><span class="lbl">Mar 14</span></div>
       <div class="day-info">
-        <div class="day-title">Madeira Beach & John's Pass</div>
-        <div class="day-subtitle">Saturday · Day Trip</div>
+        <div class="day-title">⚾ Tigers vs. Blue Jays!</div>
+        <div class="day-subtitle">Saturday · Spring Training in Dunedin</div>
       </div>
       <div class="day-chevron">›</div>
     </div>
     <div class="day-body">
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-dot dot-ocean">🌊</div>
+          <div class="tl-dot dot-car">🚗</div>
           <div class="tl-content">
-            <div class="tl-time">Morning – Afternoon</div>
-            <div class="tl-label">Madeira Beach</div>
-            <div class="tl-desc">14400 Gulf Blvd · ~30 min north. Change of scenery — beautiful beach, ~$4/hr parking. Sugar-fine sand, clear Gulf water, very popular with locals.</div>
-            <span class="tl-tag tag-cheap">$4/hr parking</span>
+            <div class="tl-time">Late Morning</div>
+            <div class="tl-label">Drive to Dunedin · ~45 min</div>
+            <div class="tl-desc">Head north on Gulf Blvd → US-19 N. Dunedin is a charming little town right on the water. Leave by 11 AM to find parking and explore before first pitch.</div>
+            <span class="tl-tag tag-drive">~45 min north</span>
           </div>
         </div>
         <div class="tl-item">
-          <div class="tl-dot dot-shop">🎣</div>
+          <div class="tl-dot dot-shop">🍺</div>
           <div class="tl-content">
-            <div class="tl-time">Midday</div>
-            <div class="tl-label">John's Pass Village Boardwalk</div>
-            <div class="tl-desc">Right next to Madeira Beach. Free to enter — watch fishing boats come in, browse shops, grab affordable seafood. Great atmosphere.</div>
-            <span class="tl-tag tag-free">Free admission</span>
+            <div class="tl-time">Late Morning</div>
+            <div class="tl-label">Explore Downtown Dunedin</div>
+            <div class="tl-desc">Main St is lined with craft breweries, shops, and restaurants. Dunedin Brewery (937 Douglas Ave) is one of Florida's oldest — great pre-game stop. Very walkable and charming.</div>
+            <span class="tl-tag tag-free">Free to browse</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-ocean">⚾</div>
+          <div class="tl-content">
+            <div class="tl-time">1:07 PM First Pitch</div>
+            <div class="tl-label">Detroit Tigers vs. Toronto Blue Jays · TD Ballpark</div>
+            <div class="tl-desc">373 Douglas Ave, Dunedin · Home of the Blue Jays since 1977. Intimate 8,500-seat ballpark — every seat is close to the action. Tickets from $39. Call (727) 733-0429 or visit mlb.com/bluejays/tickets/spring-training.</div>
+            <span class="tl-tag tag-art">Go Tigers! 🐯</span><span class="tl-tag tag-cheap">From $39</span>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot dot-food">🍽️</div>
           <div class="tl-content">
-            <div class="tl-time">Evening</div>
-            <div class="tl-label">Group Dinner at the Rental</div>
-            <div class="tl-desc">Saturday night cook-in with your friends. Great night to make something special together.</div>
-            <span class="tl-tag tag-cheap">Cook-in</span>
+            <div class="tl-time">Post-Game Evening</div>
+            <div class="tl-label">Dinner in Dunedin or Head Home</div>
+            <div class="tl-desc">Stay for dinner on Main St — Sea Sea Riders (221 Main St) is a local favorite with waterfront views and great seafood. Or head back to Pass-a-Grille for a cook-in with the group.</div>
+            <span class="tl-tag tag-food">Dinner</span>
           </div>
+        </div>
+      </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Day 9 Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🏖️</div>
+          <div><div class="alt-label">Honeymoon Island State Park en Route</div><div class="alt-desc">Just north of Dunedin · One of Florida's most beautiful state parks. Stop on the way to/from the game for a quick beach walk. $8/car entry. Osprey nesting in season.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🌊</div>
+          <div><div class="alt-label">Madeira Beach & John's Pass Instead</div><div class="alt-desc">If the Tigers game doesn't work out or someone in the group isn't a baseball fan, Madeira Beach (~30 min north) and John's Pass Village Boardwalk make a great full beach day alternative.</div></div>
         </div>
       </div>
     </div>
@@ -1072,6 +1187,23 @@
         <div class="wisdom-label">💛 Relationship Wisdom · Five Love Languages</div>
         <div class="wisdom-text">Chapman reminds us: "Don't wait for a special occasion to tell your partner what they mean to you." Tonight at dinner — or over that sunset drink — tell Marie one specific thing about this trip that you'll always remember about her.</div>
         <div class="wisdom-source">— Chapman</div>
+      </div>
+      <div class="alt-toggle" onclick="toggleAlternatives(this, event)">
+        🔀 Day 12 Alternatives <span class="alt-chevron">›</span>
+      </div>
+      <div class="alt-body">
+        <div class="alt-item">
+          <div class="alt-icon">🔥</div>
+          <div><div class="alt-label">Shattered Glass DIY — Last Chance</div><div class="alt-desc">4615 Gulf Blvd · If glass blowing didn't happen earlier in the trip, today is your last chance. Walk-in friendly — no booking required. Great final-day memory to take home.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🛥️</div>
+          <div><div class="alt-label">Sunset Boat Cruise</div><div class="alt-desc">Several operators in the area offer 2-hour Gulf sunset cruises. A special send-off for the final evening — dolphins, cocktails, and a Gulf of Mexico sunset. ~$40–60/person.</div></div>
+        </div>
+        <div class="alt-item">
+          <div class="alt-icon">🍽️</div>
+          <div><div class="alt-label">Final Dinner at Woody's Waterfront</div><div class="alt-desc">7510 Gulf Blvd · Waterfront patio, great seafood, relaxed vibe. A solid middle ground between splurge and budget — good food with a view for the last night.</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1529,22 +1661,22 @@
 
 <!-- ═══════════════ BOTTOM NAV ═══════════════ -->
 <div class="bottom-nav">
-  <button class="nav-btn active" id="nav-itinerary" onclick="showSection('itinerary', null, this)">
+  <button class="nav-btn active" id="nav-itinerary" onclick="showSection('itinerary', this)">
     <span class="nav-icon">📅</span>Itinerary
   </button>
-  <button class="nav-btn" id="nav-places" onclick="showSection('places', null, this)">
+  <button class="nav-btn" id="nav-places" onclick="showSection('places', this)">
     <span class="nav-icon">📍</span>Places
   </button>
-  <button class="nav-btn" id="nav-glass" onclick="showSection('glass', null, this)">
+  <button class="nav-btn" id="nav-glass" onclick="showSection('glass', this)">
     <span class="nav-icon">🔥</span>Glass
   </button>
-  <button class="nav-btn" id="nav-charging" onclick="showSection('charging', null, this)">
+  <button class="nav-btn" id="nav-charging" onclick="showSection('charging', this)">
     <span class="nav-icon">⚡</span>Charging
   </button>
-  <button class="nav-btn" id="nav-tips" onclick="showSection('tips', null, this)">
+  <button class="nav-btn" id="nav-tips" onclick="showSection('tips', this)">
     <span class="nav-icon">💡</span>Tips
   </button>
-  <button class="nav-btn" id="nav-budget" onclick="showSection('budget', null, this)">
+  <button class="nav-btn" id="nav-budget" onclick="showSection('budget', this)">
     <span class="nav-icon">💰</span>Budget
   </button>
 </div>
@@ -1626,18 +1758,22 @@
     document.getElementById('appIcon').href = c.toDataURL('image/png');
   })();
 
-  function showSection(id, tabBtn, navBtn) {
+  function showSection(id, navBtn) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    if (tabBtn) tabBtn.classList.add('active');
     if (navBtn) navBtn.classList.add('active');
     const matchingNav = document.getElementById('nav-' + id);
     if (matchingNav) matchingNav.classList.add('active');
-    const matchingTab = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.textContent.toLowerCase().includes(id.slice(0,4)));
-    if (matchingTab) matchingTab.classList.add('active');
     window.scrollTo(0, 0);
+  }
+
+  function toggleAlternatives(el, event) {
+    event.stopPropagation();
+    const body = el.nextElementSibling;
+    const chevron = el.querySelector('.alt-chevron');
+    body.classList.toggle('open');
+    chevron.style.transform = body.classList.contains('open') ? 'rotate(90deg)' : '';
   }
 
   function toggleDay(card) {
