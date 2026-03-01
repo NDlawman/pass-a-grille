@@ -32,6 +32,23 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
+  a.map-link, a.web-link, a.phone-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-right: 4px;
+  }
+  a.map-link  { background: #E8F4F8; color: #1B6CA8; }
+  a.web-link  { background: #E8F5E9; color: #2E7D32; }
+  a.phone-link{ background: #FFF3E0; color: #E65100; }
+  .tl-links   { margin-top: 6px; display: flex; flex-wrap: wrap; }
+
   body {
     font-family: var(--font-sans);
     background: var(--sand);
@@ -509,6 +526,7 @@
             <div class="tl-label">Stop at Publix on Gulf Blvd</div>
             <div class="tl-desc">Stock up on breakfast foods, snacks, drinks, and supplies. Eating in for breakfasts saves the most money over 12 days.</div>
             <span class="tl-tag tag-cheap">Save $$</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Publix+Gulf+Blvd+St+Pete+Beach+FL">📍 Apple Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -527,6 +545,7 @@
             <div class="tl-label">First Sunset at Paradise Grille</div>
             <div class="tl-desc">Walk to Pass-a-Grille Southwest Beach. Ring the bell at sunset — it's a local tradition. Grab one celebratory drink if you like.</div>
             <span class="tl-tag tag-free">Free to watch</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Paradise+Grille+900+Gulf+Way+Pass-a-Grille">📍 Apple Maps</a></div>
           </div>
         </div>
       </div>
@@ -570,6 +589,7 @@
             <div class="tl-label">Seahorse Restaurant</div>
             <div class="tl-desc">800 Pass-a-Grille Way · Open since 1938! Shrimp &amp; grits, Cuban toast. Walk from rental, no driving needed. Closed Tuesdays.</div>
             <span class="tl-tag tag-food">Breakfast</span><span class="tl-tag tag-cheap">$</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Seahorse+Restaurant+800+Pass-a-Grille+Way">📍 Maps</a><a class="phone-link" href="tel:+17273601734">📞 Call</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -635,6 +655,7 @@
             <div class="tl-label">Fort De Soto Park, Tierra Verde</div>
             <div class="tl-desc">~20 min drive south. Civil War fort ruins, stunning Gulf beach, nature trail, fishing pier. $5/vehicle entry. One of the best parks in Florida — perfect group outing.</div>
             <span class="tl-tag tag-cheap">$5/car</span><span class="tl-tag tag-free">Picnic Lunch</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Fort+De+Soto+Park+3500+Pinellas+Bayway+S+Tierra+Verde+FL">📍 Maps</a><a class="web-link" href="https://www.pinellascounty.org/park/05_Ft_DeSoto.htm" target="_blank">🌐 Website</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -682,6 +703,7 @@
             <div class="tl-label">Charge Tesla if Needed · 34th St S Supercharger</div>
             <div class="tl-desc">3637 34th St S, St. Pete — 24/7, next to Wawa. Grab coffee for the drive.</div>
             <span class="tl-tag tag-charge">Charging</span><span class="tl-tag tag-drive">~15 min from rental</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Tesla+Supercharger+3637+34th+St+S+St+Petersburg+FL">📍 Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -700,6 +722,7 @@
             <div class="tl-label">Visit Mom on Beaurivage Ave.</div>
             <div class="tl-desc">Relaxed afternoon with Mom. If she's up for an outing, Sarasota Bayfront Park (5 Bayfront Dr) is a lovely free waterfront park nearby.</div>
             <span class="tl-tag tag-mom">Family Visit</span><span class="tl-tag tag-free">Bayfront Park Free</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Sarasota+Bayfront+Park+5+Bayfront+Dr+Sarasota+FL">📍 Bayfront Park</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -734,6 +757,7 @@
             <div class="tl-label">Vinoy Park & North Straub Park</div>
             <div class="tl-desc">Bayshore Dr waterfront — gorgeous bay views, dolphins often seen feeding close to shore. Free, beautiful, walkable.</div>
             <span class="tl-tag tag-free">Free</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Vinoy+Park+St+Petersburg+FL">📍 Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -743,6 +767,7 @@
             <div class="tl-label">St. Pete Pier</div>
             <div class="tl-desc">600 2nd Ave NE · Free to walk. Stunning bay & skyline views, open-air seating, small aquarium (fee). Grab a coffee or snack. Tram available if needed.</div>
             <span class="tl-tag tag-free">Free to walk</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=St+Pete+Pier+600+2nd+Ave+NE+St+Petersburg+FL">📍 Maps</a><a class="web-link" href="https://stpetepier.org" target="_blank">🌐 Website</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -761,6 +786,7 @@
             <div class="tl-label">Morean Glass Studio — Downtown St. Pete</div>
             <div class="tl-desc">714 1st Ave N · 4.7 ⭐ · Right in the arts district! Attached to the Chihuly Collection. Workshops & demos daily noon–5 PM. Book ahead: (727) 827-4527.</div>
             <span class="tl-tag tag-glass">Glass Art</span><span class="tl-tag tag-art">Must Book</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Morean+Glass+Studio+714+1st+Ave+N+St+Petersburg+FL">📍 Maps</a><a class="web-link" href="https://www.moreanartscenter.org/glass-studio" target="_blank">🌐 Book</a><a class="phone-link" href="tel:+17278274527">📞 Call</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -770,6 +796,7 @@
             <div class="tl-label">Rick's Reef on Gulf Blvd</div>
             <div class="tl-desc">6712 Gulf Blvd — amazing fish tacos, grouper sandwiches, local favorite. Affordable and delicious.</div>
             <span class="tl-tag tag-food">Dinner</span><span class="tl-tag tag-cheap">$</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Rick's+Reef+6712+Gulf+Blvd+St+Pete+Beach+FL">📍 Maps</a></div>
           </div>
         </div>
       </div>
@@ -826,6 +853,7 @@
             <div class="tl-label">Paradise Grille Bell Ringing</div>
             <div class="tl-desc">900 Gulf Way — walk over for the sunset tradition. A cold drink while the sun dips into the Gulf is hard to beat.</div>
             <span class="tl-tag tag-free">Free to watch</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Paradise+Grille+900+Gulf+Way+Pass-a-Grille+FL">📍 Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -835,6 +863,7 @@
             <div class="tl-label">Bumpers Bar & Grille</div>
             <div class="tl-desc">8700 Gulf Blvd · A local dive bar gem with cold beer, burgers, and live music some nights. Cash-friendly, no pretense. Great spot for the whole group to unwind.</div>
             <span class="tl-tag tag-food">Dinner / Drinks</span><span class="tl-tag tag-cheap">$</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Bumpers+Bar+Grille+8700+Gulf+Blvd+St+Pete+Beach+FL">📍 Maps</a></div>
           </div>
         </div>
       </div>
@@ -886,6 +915,7 @@
             <div class="tl-label">Sand Key Park, Clearwater</div>
             <div class="tl-desc">1060 Gulf Blvd · ~45 min north. Powder-white sand, clear water, often less crowded than main Clearwater Beach. $6/car all day. Food truck, restrooms, shell hunting.</div>
             <span class="tl-tag tag-cheap">$6/car</span><span class="tl-tag tag-free">Picnic Lunch</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Sand+Key+Park+1060+Gulf+Blvd+Clearwater+FL">📍 Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -895,6 +925,7 @@
             <div class="tl-label">Clearwater Beach Strip</div>
             <div class="tl-desc">Short drive to browse shops and street performers. Free and fun — just window shopping.</div>
             <span class="tl-tag tag-free">Free</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Clearwater+Beach+FL">📍 Maps</a></div>
           </div>
         </div>
       </div>
@@ -937,6 +968,7 @@
             <div class="tl-label">La Croisette for Late Breakfast</div>
             <div class="tl-desc">7401 Gulf Blvd · Open 7 AM–2 PM daily. French-style breakfast, homemade croissants, quiche Lorraine. Rated one of the best breakfast spots on the beach. Worth it!</div>
             <span class="tl-tag tag-food">Breakfast</span><span class="tl-tag tag-cheap">$</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=La+Croisette+7401+Gulf+Blvd+St+Pete+Beach+FL">📍 Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -946,6 +978,7 @@
             <div class="tl-label">Zen Glass Studio — St. Pete</div>
             <div class="tl-desc">600 27th St S · 4.9 ⭐ with 751 reviews — THE best hot glassblowing in the area. Make wine glasses or pint glasses hands-on! Tue–Sat 10–5, Sun noon–5. Book ahead: (727) 323-3141. Private group of 4: ~$500 flat.</div>
             <span class="tl-tag tag-glass">Hot Glassblowing</span><span class="tl-tag tag-art">Book Ahead!</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Zen+Glass+Studio+600+27th+St+S+St+Petersburg+FL">📍 Maps</a><a class="web-link" href="https://zenglassstudio.com" target="_blank">🌐 Book</a><a class="phone-link" href="tel:+17273233141">📞 Call</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -955,6 +988,7 @@
             <div class="tl-label">Browse Pass-a-Grille Village</div>
             <div class="tl-desc">Stroll the small galleries and shops along Gulf Way and Pass-a-Grille Way. The weekend art & craft market may be running too — check locally.</div>
             <span class="tl-tag tag-free">Free browsing</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Pass-a-Grille+Way+St+Pete+Beach+FL">📍 Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -964,6 +998,7 @@
             <div class="tl-label">Grillin N Chillin</div>
             <div class="tl-desc">6708 Gulf Blvd · Opens 5 PM Thu–Sun. Local BBQ gem — brisket, pulled pork, collard greens, mac &amp; cheese. Outstanding Southern BBQ on the beach.</div>
             <span class="tl-tag tag-food">Dinner</span><span class="tl-tag tag-cheap">$</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Grillin+N+Chillin+6708+Gulf+Blvd+St+Pete+Beach+FL">📍 Maps</a></div>
           </div>
         </div>
       </div>
@@ -1003,6 +1038,7 @@
             <div class="tl-label">Explore Downtown Dunedin</div>
             <div class="tl-desc">Main St is lined with craft breweries, shops, and restaurants. Dunedin Brewery (937 Douglas Ave) is one of Florida's oldest — great pre-game stop. Very walkable and charming.</div>
             <span class="tl-tag tag-free">Free to browse</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Dunedin+Brewery+937+Douglas+Ave+Dunedin+FL">📍 Dunedin Brewery</a><a class="map-link" href="maps://maps.apple.com/?q=Downtown+Dunedin+FL">📍 Downtown</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -1010,8 +1046,9 @@
           <div class="tl-content">
             <div class="tl-time">1:07 PM First Pitch</div>
             <div class="tl-label">Detroit Tigers vs. Toronto Blue Jays · TD Ballpark</div>
-            <div class="tl-desc">373 Douglas Ave, Dunedin · Home of the Blue Jays since 1977. Intimate 8,500-seat ballpark — every seat is close to the action. Tickets from $39. Call (727) 733-0429 or visit mlb.com/bluejays/tickets/spring-training.</div>
+            <div class="tl-desc">373 Douglas Ave, Dunedin · Home of the Blue Jays since 1977. Intimate 8,500-seat ballpark — every seat is close to the action. Tickets from $39.</div>
             <span class="tl-tag tag-art">Go Tigers! 🐯</span><span class="tl-tag tag-cheap">From $39</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=TD+Ballpark+373+Douglas+Ave+Dunedin+FL">📍 Maps</a><a class="web-link" href="https://www.mlb.com/bluejays/tickets/spring-training" target="_blank">🌐 Tickets</a><a class="phone-link" href="tel:+17277330429">📞 Call</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -1021,6 +1058,7 @@
             <div class="tl-label">Dinner in Dunedin or Head Home</div>
             <div class="tl-desc">Stay for dinner on Main St — Sea Sea Riders (221 Main St) is a local favorite with waterfront views and great seafood. Or head back to Pass-a-Grille for a cook-in with the group.</div>
             <span class="tl-tag tag-food">Dinner</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Sea+Sea+Riders+221+Main+St+Dunedin+FL">📍 Sea Sea Riders</a></div>
           </div>
         </div>
       </div>
@@ -1089,6 +1127,7 @@
             <div class="tl-label">Ringling Museum of Art — FREE on Mondays!</div>
             <div class="tl-desc">5401 Bay Shore Rd, Sarasota · World-class European masters, Baroque paintings, gorgeous Italian courtyard. Free every Monday. Get there when it opens — plan 2–3 hours. The grounds alone are stunning.</div>
             <span class="tl-tag tag-free">FREE Monday!</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Ringling+Museum+5401+Bay+Shore+Rd+Sarasota+FL">📍 Maps</a><a class="web-link" href="https://www.ringling.org" target="_blank">🌐 Website</a><a class="phone-link" href="tel:+19413595700">📞 Call</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -1096,8 +1135,9 @@
           <div class="tl-content">
             <div class="tl-time">Late Morning (Marie & Friend)</div>
             <div class="tl-label">Shattered Glass DIY — Sarasota</div>
-            <div class="tl-desc">2740 Stickney Point Rd · Perfect 5.0 ⭐ · Stained glass art, resin art — great for groups! Open daily except Friday. Near the Ringling route. (941) 554-4599.</div>
+            <div class="tl-desc">2740 Stickney Point Rd · Perfect 5.0 ⭐ · Stained glass art, resin art — great for groups! Open daily except Friday. Near the Ringling route.</div>
             <span class="tl-tag tag-glass">Glass Art</span><span class="tl-tag tag-cheap">Book Ahead</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Shattered+Glass+DIY+2740+Stickney+Point+Rd+Sarasota+FL">📍 Maps</a><a class="web-link" href="https://www.shatteredglassdiy.com" target="_blank">🌐 Book</a><a class="phone-link" href="tel:+19415544599">📞 Call</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -1107,6 +1147,7 @@
             <div class="tl-label">Visit Mom Again</div>
             <div class="tl-desc">Second visit to Beaurivage Ave. Take her to Bayfront Park (5 Bayfront Dr) if she'd enjoy the fresh air and waterfront views.</div>
             <span class="tl-tag tag-mom">Family</span><span class="tl-tag tag-free">Free</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Sarasota+Bayfront+Park+5+Bayfront+Dr+Sarasota+FL">📍 Bayfront Park</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -1116,6 +1157,7 @@
             <div class="tl-label">Drive Home</div>
             <div class="tl-desc">Top up at Sarasota Supercharger (5903 Honore Ave) if needed. Full day, well spent!</div>
             <span class="tl-tag tag-charge">Optional Charge</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Tesla+Supercharger+5903+Honore+Ave+Sarasota+FL">📍 Supercharger</a></div>
           </div>
         </div>
       </div>
@@ -1146,6 +1188,7 @@
             <div class="tl-label">Last Breakfast at Seahorse Restaurant</div>
             <div class="tl-desc">800 Pass-a-Grille Way — one final visit to this beloved local spot. Or cook a big breakfast together at the rental.</div>
             <span class="tl-tag tag-food">Breakfast</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Seahorse+Restaurant+800+Pass-a-Grille+Way">📍 Maps</a><a class="phone-link" href="tel:+17273601734">📞 Call</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -1172,6 +1215,7 @@
             <div class="tl-label">Splurge Option: The Dog Bar St. Pete Beach</div>
             <div class="tl-desc">6801 Gulf Blvd · Great rooftop bar with Gulf views, craft cocktails, and solid food. Perfect celebratory last dinner spot with the group.</div>
             <span class="tl-tag tag-food">Dinner</span><span class="tl-tag tag-cheap">$$</span>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=The+Dog+Bar+6801+Gulf+Blvd+St+Pete+Beach+FL">📍 Maps</a></div>
           </div>
         </div>
         <div class="tl-item">
@@ -1180,6 +1224,7 @@
             <div class="tl-time">Dinner (Budget Option)</div>
             <div class="tl-label">Rick's Reef or Cook-in</div>
             <div class="tl-desc">Splurge slightly at Rick's Reef or La Croisette, or cook a memorable last dinner at the rental with your crew.</div>
+            <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Rick's+Reef+6712+Gulf+Blvd+St+Pete+Beach+FL">📍 Rick's Reef</a><a class="map-link" href="maps://maps.apple.com/?q=La+Croisette+7401+Gulf+Blvd+St+Pete+Beach+FL">📍 La Croisette</a></div>
           </div>
         </div>
       </div>
@@ -1255,8 +1300,9 @@
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">800 Pass-a-Grille Way, St. Pete Beach</div></div></div>
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">8 AM – 2:30 PM · <strong style="color:#E07A5F">Closed Tuesdays</strong></div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.6 · Shrimp & grits, Cuban toast, guacamole toast</div></div></div>
-    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">+1 (727) 360-1734</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value"><a class="phone-link" href="tel:+17273601734">📞 (727) 360-1734</a></div></div></div>
     <div class="pill-row"><span class="pill">Walk from rental</span><span class="pill">Breakfast & Lunch</span><span class="pill">$</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Seahorse+Restaurant+800+Pass-a-Grille+Way+St+Pete+Beach+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1268,6 +1314,7 @@
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">7 AM – 7 PM Daily</div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.6 · Counter service, cold drinks, great sunset views</div></div></div>
     <div class="highlight-box">🔔 <strong>Bell Ringing Tradition</strong> — Every evening at sunset, the bell rings. Free to watch, even if you don't buy anything. A must-do each evening!</div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Paradise+Grille+900+Gulf+Way+Pass-a-Grille+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1279,6 +1326,7 @@
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Mon–Fri 8 AM–1 AM · Sat–Sun 7 AM–1 AM</div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.4 · Fish tacos (mahi), grouper sandwich, mac & cheese</div></div></div>
     <div class="pill-row"><span class="pill">Breakfast & Dinner</span><span class="pill">$–$$</span><span class="pill">Local Favorite</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Rick's+Reef+6712+Gulf+Blvd+St+Pete+Beach+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1290,6 +1338,7 @@
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">7 AM – 2 PM Daily</div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.8 · Homemade croissants, quiche Lorraine, crêpes</div></div></div>
     <div class="pill-row"><span class="pill">Rated #1 Breakfast</span><span class="pill">$</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=La+Croisette+7401+Gulf+Blvd+St+Pete+Beach+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1301,6 +1350,7 @@
     <div class="info-row"><div class="info-row-icon">🚗</div><div class="info-row-content"><div class="info-row-value">~20 min south of Pass-a-Grille</div></div></div>
     <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-value">$5/vehicle · Civil War fort, Gulf beach, nature trail, fishing pier</div></div></div>
     <div class="pill-row"><span class="pill">Best Park in Area</span><span class="pill">$5/car</span><span class="pill">Group Outing</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Fort+De+Soto+Park+3500+Pinellas+Bayway+S+Tierra+Verde+FL">📍 Open in Maps</a><a class="web-link" href="https://www.pinellascounty.org/park/05_Ft_DeSoto.htm" target="_blank">🌐 Park Info</a></div>
   </div>
 
   <div class="info-card">
@@ -1312,6 +1362,7 @@
     <div class="info-row"><div class="info-row-icon">🚗</div><div class="info-row-content"><div class="info-row-value">~45 min north</div></div></div>
     <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-value">$6/car all day · Powder-white sand, shells, food truck</div></div></div>
     <div class="pill-row"><span class="pill">Rating 4.7 ⭐</span><span class="pill">$6/car</span><span class="pill">Less Crowded</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Sand+Key+Park+1060+Gulf+Blvd+Clearwater+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1321,8 +1372,9 @@
     </div>
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">5401 Bay Shore Rd, Sarasota</div></div></div>
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Mon 10 AM–5 PM (FREE) · Thu until 8 PM</div></div></div>
-    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">+1 (941) 359-5700</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value"><a class="phone-link" href="tel:+19413595700">📞 (941) 359-5700</a></div></div></div>
     <div class="highlight-box">⭐ <strong>Visit on Monday March 16</strong> — the main art museum and grounds are completely free. European masters, Italian courtyard, lush gardens. Allow 2–3 hours.</div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Ringling+Museum+5401+Bay+Shore+Rd+Sarasota+FL">📍 Open in Maps</a><a class="web-link" href="https://www.ringling.org" target="_blank">🌐 Website</a></div>
   </div>
 
   <div class="info-card">
@@ -1334,6 +1386,7 @@
     <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-value">Free to walk · Parking $2/hr nearby</div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">4.7 · Great bay views, tram, vendor booths, aquarium</div></div></div>
     <div class="pill-row"><span class="pill">Free to Walk</span><span class="pill">Dolphin Watching</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=St+Pete+Pier+600+2nd+Ave+NE+St+Petersburg+FL">📍 Open in Maps</a><a class="web-link" href="https://stpetepier.org" target="_blank">🌐 Website</a></div>
   </div>
 
   <div class="info-card">
@@ -1345,6 +1398,7 @@
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Thu–Sun · Opens 5 PM · <strong style="color:#E07A5F">Closed Mon–Wed</strong></div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Brisket, pulled pork, collard greens, mac & cheese. Outstanding Southern BBQ on the beach.</div></div></div>
     <div class="pill-row"><span class="pill">Dinner Only</span><span class="pill">Thu–Sun</span><span class="pill">$</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Grillin+N+Chillin+6708+Gulf+Blvd+St+Pete+Beach+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1355,6 +1409,7 @@
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">8700 Gulf Blvd, St. Pete Beach</div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Cold beer, burgers, cash-friendly, no pretense. Live music some nights. Great for the whole group.</div></div></div>
     <div class="pill-row"><span class="pill">Dinner / Drinks</span><span class="pill">Local Vibe</span><span class="pill">$</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Bumpers+Bar+Grille+8700+Gulf+Blvd+St+Pete+Beach+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1365,6 +1420,7 @@
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">6801 Gulf Blvd, St. Pete Beach</div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Rooftop bar with Gulf views, craft cocktails, solid food. Perfect for a celebratory dinner.</div></div></div>
     <div class="pill-row"><span class="pill">Rooftop Views</span><span class="pill">Dinner</span><span class="pill">$$</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=The+Dog+Bar+6801+Gulf+Blvd+St+Pete+Beach+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1375,6 +1431,7 @@
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">7510 Gulf Blvd, St. Pete Beach</div></div></div>
     <div class="info-row"><div class="info-row-icon">⭐</div><div class="info-row-content"><div class="info-row-value">Waterfront patio, grouper tacos, cold drinks. Very laid-back Gulf Coast atmosphere. A local staple.</div></div></div>
     <div class="pill-row"><span class="pill">Waterfront Patio</span><span class="pill">Lunch & Dinner</span><span class="pill">$</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Woody's+Waterfront+7510+Gulf+Blvd+St+Pete+Beach+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card">
@@ -1386,6 +1443,7 @@
     <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Visit #2 — Day 11, Monday March 16</div></div></div>
     <div class="info-row"><div class="info-row-icon">🚗</div><div class="info-row-content"><div class="info-row-value">~60 miles · I-275 S to I-75 S · ~1 hour</div></div></div>
     <div class="highlight-box">🌿 <strong>Nearby outing idea:</strong> Sarasota Bayfront Park (5 Bayfront Dr) — beautiful free waterfront park, easy walking, benches, bay views. Perfect if Mom wants to get out.</div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Sarasota+Bayfront+Park+5+Bayfront+Dr+Sarasota+FL">📍 Bayfront Park</a></div>
   </div>
 
 </div>
@@ -1401,12 +1459,12 @@
     </div>
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">600 27th St S, St. Petersburg, FL</div></div></div>
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Tue–Sat 10 AM–5 PM · Sun Noon–5 PM · Closed Monday</div></div></div>
-    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(727) 323-3141 · zenglass.com</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value"><a class="phone-link" href="tel:+17273233141">📞 (727) 323-3141</a></div></div></div>
     <div class="info-row"><div class="info-row-icon">💵</div><div class="info-row-content"><div class="info-row-label">Pricing for 4 People</div><div class="info-row-value">Private group (up to 4): $500 flat = $125/person · Individual workshops: $100/person</div></div></div>
     <div class="info-row"><div class="info-row-icon">🍷</div><div class="info-row-content"><div class="info-row-value">Make-Your-Own Wineglass, pint glass, ornament, or paperweight — hands-on with an instructor. 751 reviews — genuinely exceptional.</div></div></div>
     <div class="highlight-box">🔥 <strong>Top Recommendation</strong> — Book the private session for 4. No strangers, your own instructor, your own pace. Best glass experience in the Tampa Bay area. Book <em>soon</em> — March is busy season!</div>
     <div class="pill-row"><span class="pill">Plan Day 8 (Fri Mar 13)</span><span class="pill">Call to Book</span><span class="pill">4.9 ⭐ · 751 Reviews</span></div>
-  </div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Zen+Glass+Studio+600+27th+St+S+St+Petersburg+FL">📍 Maps</a><a class="web-link" href="https://zenglassstudio.com" target="_blank">🌐 Website</a><a class="web-link" href="https://book.peek.com/s/83ed8428-3395-45ce-808a-36f5878cb5d4/ZEqD" target="_blank">🗓️ Book Online</a></div>
 
   <div class="info-card" style="border-left: 4px solid #9C27B0;">
     <div class="info-card-header">
@@ -1415,9 +1473,10 @@
     </div>
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">714 1st Ave N, St. Petersburg, FL (Arts District)</div></div></div>
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Daily Noon–5 PM · Demos & workshops available</div></div></div>
-    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(727) 827-4527 · moreanartscenter.org</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value"><a class="phone-link" href="tel:+17278274527">📞 (727) 827-4527</a></div></div></div>
     <div class="info-row"><div class="info-row-icon">🎨</div><div class="info-row-content"><div class="info-row-value">Right next to the Chihuly Collection museum — make a full art afternoon of it on Day 5!</div></div></div>
     <div class="pill-row"><span class="pill">Plan Day 5 (Tue Mar 10)</span><span class="pill">Downtown Arts Day</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Morean+Glass+Studio+714+1st+Ave+N+St+Petersburg+FL">📍 Maps</a><a class="web-link" href="https://www.moreanartscenter.org/glass-studio" target="_blank">🌐 Website</a></div>
   </div>
 
   <div class="info-card" style="border-left: 4px solid #E07A5F;">
@@ -1427,10 +1486,11 @@
     </div>
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">4615 Gulf Blvd, St. Pete Beach — walkable!</div></div></div>
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Wed–Mon 11 AM–4 PM · <strong style="color:#E07A5F">Closed Tuesdays</strong></div></div></div>
-    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(727) 201-9283 · shatteredglassdiy.com/stpetebeach</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value"><a class="phone-link" href="tel:+17272019283">📞 (727) 201-9283</a></div></div></div>
     <div class="info-row"><div class="info-row-icon">🎨</div><div class="info-row-content"><div class="info-row-value">Stained glass & resin art — not hot glassblowing, but a fantastic couples/group activity. 528 reviews, perfect score!</div></div></div>
     <div class="highlight-box">🏆 <strong>Easiest option</strong> — literally on Gulf Blvd, no driving needed. Great rainy-day backup plan or spontaneous afternoon activity.</div>
     <div class="pill-row"><span class="pill">Walk from Rental</span><span class="pill">Any Afternoon</span><span class="pill">5.0 ⭐ Perfect</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Shattered+Glass+DIY+4615+Gulf+Blvd+St+Pete+Beach+FL">📍 Maps</a><a class="web-link" href="https://shatteredglassdiy.com/stpetebeach" target="_blank">🌐 Website</a></div>
   </div>
 
   <div class="info-card" style="border-left: 4px solid #3D7A5C;">
@@ -1440,9 +1500,10 @@
     </div>
     <div class="info-row"><div class="info-row-icon">📍</div><div class="info-row-content"><div class="info-row-value">2740 Stickney Point Rd, Sarasota, FL</div></div></div>
     <div class="info-row"><div class="info-row-icon">🕐</div><div class="info-row-content"><div class="info-row-value">Daily except Friday</div></div></div>
-    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value">(941) 554-4599</div></div></div>
+    <div class="info-row"><div class="info-row-icon">📞</div><div class="info-row-content"><div class="info-row-value"><a class="phone-link" href="tel:+19415544599">📞 (941) 554-4599</a></div></div></div>
     <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Pair with Day 11 Ringling Museum visit — great combo on the Monday Sarasota trip</div></div></div>
     <div class="pill-row"><span class="pill">Plan Day 11 (Mon Mar 16)</span><span class="pill">Sarasota Trip Day</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Shattered+Glass+DIY+2740+Stickney+Point+Rd+Sarasota+FL">📍 Maps</a><a class="web-link" href="https://shatteredglassdiy.com/sarasota" target="_blank">🌐 Website</a></div>
   </div>
 
   <div class="info-card" style="background: linear-gradient(135deg, #F3E5F5, #EDE7F6);">
@@ -1472,6 +1533,7 @@
     <div class="info-row"><div class="info-row-icon">🛒</div><div class="info-row-content"><div class="info-row-value">Next to Wawa — coffee, snacks, sandwiches, ATM</div></div></div>
     <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Use before Sarasota trips (Day 4, Day 11) and on Departure Day 13</div></div></div>
     <div class="pill-row"><span class="pill">~15 min from rental</span><span class="pill">Rated 4.5 ⭐</span><span class="pill">Always available</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Tesla+Supercharger+3637+34th+St+S+St+Petersburg+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card" style="border-left: 4px solid var(--kelp);">
@@ -1484,6 +1546,7 @@
     <div class="info-row"><div class="info-row-icon">⚡</div><div class="info-row-content"><div class="info-row-value">20 chargers + V4 chargers next door · Magic dock (works with other EVs)</div></div></div>
     <div class="info-row"><div class="info-row-icon">🛒</div><div class="info-row-content"><div class="info-row-value">Lowe's and Wawa nearby</div></div></div>
     <div class="pill-row"><span class="pill">Backup Option</span><span class="pill">30 total chargers</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Tesla+Supercharger+22nd+Ave+N+St+Petersburg+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card" style="border-left: 4px solid var(--coral);">
@@ -1497,6 +1560,7 @@
     <div class="info-row"><div class="info-row-icon">💡</div><div class="info-row-content"><div class="info-row-value">Tip: Use the longer wall of chargers — they're the faster 150W units</div></div></div>
     <div class="info-row"><div class="info-row-icon">🗓️</div><div class="info-row-content"><div class="info-row-value">Use on return from Day 4 or Day 11 if needed</div></div></div>
     <div class="pill-row"><span class="pill">Rated 4.7 ⭐</span><span class="pill">Optional top-up</span></div>
+    <div class="tl-links"><a class="map-link" href="maps://maps.apple.com/?q=Tesla+Supercharger+5903+Honore+Ave+Sarasota+FL">📍 Open in Maps</a></div>
   </div>
 
   <div class="info-card" style="background: linear-gradient(135deg, #E8F4F8, #E8F5E9);">
@@ -1528,6 +1592,7 @@
     <div class="info-row"><div class="info-row-icon">🐾</div><div class="info-row-content"><div class="info-row-value">Pet-friendly! Booster seats available for children</div></div></div>
     <div class="info-row"><div class="info-row-icon">💡</div><div class="info-row-content"><div class="info-row-value">Use it to reach restaurants, Paradise Grille, beach access points — saves parking fees and hassle</div></div></div>
     <div class="highlight-box">🚫 <strong>Tips not expected</strong> — drivers are city-compensated. Just enjoy the ride and flag one down or request in the app.</div>
+    <div class="tl-links"><a class="web-link" href="https://www.ridefreebee.com" target="_blank">🌐 Freebee App</a></div>
   </div>
 
   <div class="info-card">
